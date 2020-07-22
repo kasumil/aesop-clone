@@ -1,13 +1,28 @@
 import React from "react";
+import Productslider from "./Components/Productslider";
 import "./ProductList.scss";
 
 class ProductList extends React.Component {
+  state = {
+    products: [],
+  };
+
+  componentDidMount() {
+    fetch("http://localhost:3001/data/productlist.json")
+      .then((res) => res.json())
+      // .then((res) => console.log("res.products : ", res.products));
+      .then((res) => this.setState({ products: res.data }));
+  }
+
   render() {
+    const { products } = this.state;
     return (
       <div className="ProductList">
         <section className="productListContainer">
-          <div className="productTitleBox">
-            <h1 className="productTitle">스킨</h1>
+          <div className="productTitleContainer">
+            <div className="productTitleBox">
+              <h1 className="productTitle">스킨</h1>
+            </div>
           </div>
           <div className="productFilterContainer">
             <div className="productFilterBox">
@@ -53,13 +68,18 @@ class ProductList extends React.Component {
                 <button className="filterBtn">
                   <div className="filterBox">
                     <span>필터</span>
-                    <svg class="btnIcon" role="img" viewBox="0 0 50 50"><g><polygon points="25,31.3 4.2,10.5 0.1,14.6 25,39.5 50,14.6 45.9,10.5 "></polygon></g></svg>
+                    <svg class="btnIcon" role="img" viewBox="0 0 50 50">
+                      <g>
+                        <polygon points="25,31.3 4.2,10.5 0.1,14.6 25,39.5 50,14.6 45.9,10.5 "></polygon>
+                      </g>
+                    </svg>
                   </div>
                 </button>
               </div>
             </div>
           </div>
         </section>
+        <Productslider products={products} />
       </div>
     );
   }

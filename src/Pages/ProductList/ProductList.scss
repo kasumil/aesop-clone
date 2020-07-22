@@ -1,11 +1,27 @@
+$font-color: #333;
+
 .ProductList {
   * {
     list-style: none;
     font-family: "Suisse Regular";
   }
 
+  .productTitleContainer {
+    background-color: #f5f5e8;
+  }
+
   .productTitleBox {
+    display: flex;
     margin: 0 25px;
+
+    .productTitle {
+      display: flex;
+      align-items: center;
+      color: $font-color;
+      margin: 0;
+      height: 80px;
+      top: 50%;
+    }
   }
 
   .productFilterContainer {
@@ -62,7 +78,7 @@
         cursor: pointer;
 
         &:hover {
-          background-color: black;
+          background-color: $font-color;
           color: white;
           fill: white;
         }

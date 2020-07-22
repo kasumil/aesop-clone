@@ -1,0 +1,41 @@
+$font-color: #333;
+
+.Sliderintro {
+  width: 400px;
+  height: 530px;
+  padding: 25px 10px 70px 25px;
+
+  .introDescription {
+    margin: 202px 0 0;
+    padding: 0 0 50px;
+
+    .descriptionBtn {
+      background-color: inherit;
+      border: none;
+    }
+
+    .descriptionInfo {
+      line-height: 1.6;
+      color: $font-color;
+    }
+  }
+
+  .productAllView {
+    .productAllViewBtn {
+      background-color: inherit;
+      border: none;
+      cursor: pointer;
+
+      .productAllViewBox {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+
+        .productAllViewIcon {
+          width: 13px;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
