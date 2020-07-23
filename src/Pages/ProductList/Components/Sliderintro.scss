@@ -1,4 +1,4 @@
-$font-color: #333;
+@import "./src/Common.scss";
 
 .Sliderintro {
   width: 400px;
@@ -12,16 +12,24 @@ $font-color: #333;
     .descriptionBtn {
       background-color: inherit;
       border: none;
+      margin-bottom: 15px;
+
+      .descriptionName {
+        font-weight: normal;
+        color: $darkColor;
+        font-size: x-large;
+      }
     }
 
     .descriptionInfo {
+      font-weight: normal;
+      color: $darkColor;
       line-height: 1.6;
-      color: $font-color;
     }
   }
 
   .productAllView {
-    .productAllViewBtn {
+    &Btn {
       background-color: inherit;
       border: none;
       cursor: pointer;
@@ -30,6 +38,11 @@ $font-color: #333;
         display: flex;
         align-items: center;
         font-size: 14px;
+
+        .productText {
+          font-weight: normal;
+          color: $darkColor;
+        }
 
         .productAllViewIcon {
           width: 13px;

@@ -1,3 +1,5 @@
+@import "./src/Common.scss";
+
 .Product {
   display: flex;
   flex-direction: column;
@@ -6,7 +8,7 @@
   width: 400px;
   height: 530px;
   &:hover {
-    background-color: #f0efe1;
+    background-color: $lightGray;
   }
 
   img {
@@ -17,13 +19,18 @@
   .productInfo {
     padding-bottom: 40px;
 
-    .productName {
+    .name {
+      font-weight: normal;
+      color: $darkColor;
       text-align: center;
       margin: 0 0 10px;
     }
-    .productSizePrice {
+    .sizePrice {
       padding: 0 40px;
 
+      span {
+        color: #666666;
+      }
       .seperator {
         margin: 0 5px;
       }

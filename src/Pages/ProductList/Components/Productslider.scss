@@ -1,48 +1,19 @@
-$font-color: #333;
+@import "./src/Common.scss";
 
 .Productslider {
-  .evenSliderContainer {
-    display: flex;
-    overflow: hidden;
-    background-color: #f5f5e8;
-    color: #252525;
-
-    .sliderContents {
-      position: relative;
-
-      .sliderContensWrap {
-        display: flex;
-        position: absolute;
-
-        .slick-next {
-          left: 1310px;
-        }
-
-        .slick-prev:before {
-          background-color: $font-color;
-          padding: 30px;
-        }
-
-        .slick-next:before {
-          background-color: $font-color;
-          padding: 30px;
-        }
-
-        .slick-disable {
-          display: none !important;
-        }
-      }
-    }
+  .light {
+    background-color: $lightColor;
   }
 
-  .oddSliderContainer {
+  .dark {
+    background-color: $darkColor;
+  }
+
+  .SliderContainer {
     display: flex;
     overflow: hidden;
-    background-color: #eaeadd;
-    color: #252525;
-    // transform: translateX(0%);
-    // transition: transform 4000ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    // animation: ease-in;
+    background-color: $lightColor;
+    color: $darkColor;
 
     .sliderContents {
       position: relative;
@@ -56,17 +27,13 @@ $font-color: #333;
         }
 
         .slick-prev:before {
-          background-color: $font-color;
+          background-color: $darkColor;
           padding: 30px;
         }
 
         .slick-next:before {
-          background-color: $font-color;
+          background-color: $darkColor;
           padding: 30px;
-        }
-
-        .slick-disable {
-          display: none !important;
         }
       }
     }

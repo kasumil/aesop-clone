@@ -1,16 +1,12 @@
 import React from "react";
-import Product from "./Product";
 import Slider from "react-slick";
+import Product from "./Product";
 import Sliderintro from "./Sliderintro";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Productslider.scss";
 
 class Productslider extends React.Component {
-  state = {
-    cpid: 0,
-  };
-
   render() {
     const { products } = this.props;
     const settings = {
@@ -23,18 +19,16 @@ class Productslider extends React.Component {
     };
 
     return (
-      <div>
+      <div Productslider>
         {products.map((el, i) => {
-          console.log(this.state.cpid);
           return (
             <div className="Productslider">
               <section
                 className={
-                  i % 2 === 0 ? "evenSliderContainer" : "oddSliderContainer"
+                  i % 2 === 0 ? "light SliderContainer" : "dark SliderContainer"
                 }
               >
                 <Sliderintro
-                  cpid={el.info.cpid}
                   catagoryname={el.info.catagoryname}
                   catagorydescription={el.info.catagorydescription}
                   catagoryallview={el.info.catagoryallview}
@@ -49,6 +43,7 @@ class Productslider extends React.Component {
                           size={el.size}
                           price={el.price}
                           image={el.image}
+                          key={el.id}
                         />
                       ))}
                     </Slider>

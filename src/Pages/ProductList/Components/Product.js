@@ -10,11 +10,11 @@ class Product extends React.Component {
           <img src={image} />
         </a>
         <div className="productInfo">
-          <h5 className="productName">{name}</h5>
-          <div className="productSizePrice">
-            <span className="productSize">{size}</span>
+          <h5 className="name">{name}</h5>
+          <div className="sizePrice">
+            <span className="size">{size}</span>
             <span className="seperator">/</span>
-            <span className="productProce">{price}</span>
+            <span className="prrce">{price}</span>
           </div>
         </div>
       </div>
