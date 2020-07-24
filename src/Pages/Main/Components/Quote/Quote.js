@@ -4,7 +4,7 @@ import "./Quote.scss";
 class Quote extends React.Component {
   render() {
     return (
-      <div className="Quote">
+      <div className={this.props.fourthFeed ? "Quote" : "QuoteIsHidden"}>
         <blockquote className="quoteContent">
           <p className="quoteParagraph">
             ‘Know'st thou the land where the lemon-trees bloom?’

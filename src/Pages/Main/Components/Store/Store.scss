@@ -1,26 +1,32 @@
-.Appointment {
+@import "./src//Common.scss";
+
+.StoreIsHidden {
+  opacity: 0;
+}
+
+.Store {
   width: 100%;
   height: 700px;
-  margin-bottom: 80px;
   display: flex;
+  font-family: "Suisse Regular", sans-serif;
+  opacity: 1;
+  transition: opacity 800ms 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  .appointmentContent {
+  .storeContent {
     width: 40%;
-    height: 100%;
     padding: 0 40px;
-    margin-left: 100px;
+    margin-left: 60px;
     margin-right: 100px;
-    font-family: "Suisse Regular", sans-serif;
     font-size: 17px;
     font-weight: 100;
     line-height: 1.7;
-    color: #333;
+    color: $fontDark;
 
-    .apTitle {
+    .storeTitle1 {
       font-size: 14px;
     }
 
-    .apTitle2 {
+    .storeTitle2 {
       margin-top: 30px;
       margin-bottom: 40px;
       font-family: "Zapf";
@@ -36,17 +42,17 @@
       padding: 0 23px;
       border: 1px solid rgba(51, 51, 51, 0.2);
       font-size: 14px;
-      color: #333;
+      color: $fontDark;
       transition: color 200ms cubic-bezier(0.645, 0.045, 0.355, 1),
         background-color 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
       cursor: pointer;
 
       &:hover {
-        background-color: #333;
-        color: #fffef2;
+        background-color: $fontDark;
+        color: $lightColor;
 
         svg {
-          fill: #fffef2;
+          fill: $lightColor;
         }
       }
 
@@ -62,12 +68,22 @@
     }
   }
 
-  .appointmentImg {
+  .storeImg {
     width: 60%;
+    height: 680px;
+    border: 1px solid #dad9d0;
+    border-width: 0 0 1px 0;
 
-    .relaxImg {
+    .storeLotteImg {
       width: 100%;
-      height: 700px;
+      height: 600px;
+    }
+
+    p {
+      padding: 20px 0 0 25px;
+      padding-bottom: -10px;
+      font-size: 14px;
+      color: $fontLight;
     }
   }
 }

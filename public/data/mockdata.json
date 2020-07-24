@@ -1,0 +1,35 @@
+{
+  "result": "SUCCESS",
+  "data": [
+    {
+      "product__name": "아이 리무버",
+      "product__description": "눈 주위의 민감한 피부를 달래고 진정시켜주는",
+      "image_url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-small.png?context=bWFzdGVyfGltYWdlc3wxMjM3Mjh8aW1hZ2UvcG5nfGltYWdlcy9oOGIvaGExLzg4MDUwNzMxNTgxNzQucG5nfDFhOTdhMzRiOTE3NTY3MGIwZmQ3NjcxNzRjMWMzMTJjYWZlMTdiZWRjZDJlYjdiNzEyOWVhM2FiMTMyYzk5NWU "
+    },
+    {
+      "product__name": "파슬리 씨드 페이셜 클렌징 오일",
+      "product__description": "진한 메이크업도 부드럽고",
+      "image_url": "https://www.aesop.com/medias/Aesop-Skin-Parsley-Seed-Facial-Cleansing-Oil-200mL-small.png?context=bWFzdGVyfGltYWdlc3wxNDkxMzF8aW1hZ2UvcG5nfGltYWdlcy9oMDUvaDIyLzg3OTc0NDYyNDIzMzQucG5nfDdiMDQ3NDcxNDczNDU3NzkxYzYwMzExM2UwZTRhMTZlNGYzNDNkM2NlZDljZDNhMTBjZjYzYWMyMGUwZGM2OWQ "
+    },
+    {
+      "product__name": "퓨리파잉 페이셜 크림 클렌저",
+      "product__description": "가벼운 메이크업을 지워주고",
+      "image_url": "https://www.aesop.com/medias/Aesop-Skin-Purifying-Facial-Cream-Cleanser-100mL-small.png?context=bWFzdGVyfGltYWdlc3wxNjM2MDR8aW1hZ2UvcG5nfGltYWdlcy9oZmQvaGFlLzg3OTc0NDY1MDQ0NzgucG5nfDM0ZmFlMGFiYWI1MjBjZGFiNDZmNmUxMzRiMWM3ZjNmYTgxNTk1YjY0MThkZjliNDYyZTdlNDcyMTFhODM4Mjc "
+    },
+    {
+      "product__name": "페뷸러스 페이스 클렌저",
+      "product__description": "수분 공급을 위한 보태니컬 성분이",
+      "image_url": "https://www.aesop.com/medias/Aesop-Skin-Fabulous-Face-Cleanser-100mL-small.png?context=bWFzdGVyfGltYWdlc3wxMTc3MDN8aW1hZ2UvcG5nfGltYWdlcy9oNzYvaDNmLzg4MTUwMjI2Njk4NTQucG5nfDg4NTljZjVjYjkyNTQyOTMzNjlhYTU1YmU3YThkNmE1ODkzYWYxZmNlMzExZDljNjVmNTU4ZGE1YTAxZTc2M2M "
+    },
+    {
+      "product__name": "파슬리 씨드 페이셜 클렌저",
+      "product__description": "피부를 건조하지 않고,",
+      "image_url": "https://www.aesop.com/medias/Aesop-SkinParsley-Seed-Facial-Cleanser-100mL-small.png?context=bWFzdGVyfGltYWdlc3wxMTMyMzN8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaGY3Lzg4MTUwMjM3MTg0MzAucG5nfDRhNzg4MjA3MjcyMGRhMTVhOWZmZjI3NTU2OTM2MjhjZjQ1MjZiZTQ3OTdkMmRjMDlhZWZmOTY0NTMwNWVhYzM "
+    },
+    {
+      "product__name": "어메이징 페이스 클렌저",
+      "product__description": "부드러운 거품이 피부를 ",
+      "image_url": "https://www.aesop.com/medias/Large-PNG-Aesop-Skin-Amazing-Face-Cleanser-100mL-small.png?context=bWFzdGVyfGltYWdlc3wxMTgxOTJ8aW1hZ2UvcG5nfGltYWdlcy9oY2QvaDBiLzg4MTUyNDA5MDQ3MzQucG5nfDFhYWYyYTBjYTBlOTlkZWI1ODUyMGM2NWFhNTI5YzRlMzk0N2M5YzVjNjJmYzE4YWQ3NmE0YzBkZGVmZDZkN2U "
+    }
+  ]
+}

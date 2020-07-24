@@ -2,7 +2,16 @@ import React, { Fragment } from "react";
 import "./Footer.scss";
 
 class Footer extends React.Component {
+  state = {
+    focused: false,
+  };
+
+  focusEmailInput = () => {
+    this.setState({ focused: !this.state.focused });
+  };
+
   render() {
+    const { focused } = this.state;
     return (
       <Fragment>
         <footer className="Footer">
@@ -10,8 +19,14 @@ class Footer extends React.Component {
             <div className="newsLetter">
               <p className="subscribe">구독하기</p>
               <div className="inputBox">
-                <span className="textEmail">이메일주소</span>
-                <div class="inputEmail">
+                <span className={focused ? "textEmail:focus" : "textEmail"}>
+                  이메일주소
+                </span>
+                <div
+                  class="inputEmail"
+                  onFocus={this.focusEmailInput}
+                  onBlur={this.focusEmailInput}
+                >
                   <input type="text"></input>
                 </div>
               </div>

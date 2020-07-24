@@ -4,7 +4,11 @@ import "./Appointment.scss";
 class Appointment extends React.Component {
   render() {
     return (
-      <div className="Appointment">
+      <section
+        className={
+          this.props.secondFeed ? "Appointment" : "AppointmentIsHidden"
+        }
+      >
         <div className="appointmentContent">
           <p className="apTitle">페이셜 어포인트먼트</p>
           <p className="apTitle2">피부와 심신의 안정</p>
@@ -30,7 +34,7 @@ class Appointment extends React.Component {
             src="https://www.aesop.com/medias/GenericImages-FacialAppointment-Primary-Mid-Desktop-1690x1400px.jpg?context=bWFzdGVyfGltYWdlc3wxNjM4NDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDc5L2g0Ni84ODc5NzQ1NTY0NzAyLmpwZ3wyOTBjMmVmZDk3Y2NlZmJlYWNlMjM5ODM2ZDE4MTAxYzc4YTM5MjQ3YjE4ZDQ0ZmQ2NWM1ZWU5Y2MxNTg1NmNi"
           />
         </div>
-      </div>
+      </section>
     );
   }
 }

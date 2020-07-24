@@ -1,32 +1,34 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Nav.scss";
 
 class Nav extends React.Component {
   render() {
     return (
-      <header className="Nav">
+      <nav className={this.props.fixedNav ? "NavFixed" : "Nav"}>
         <ul className="navList">
           <div className="navLeft">
             <li>
-              <a href="/shop">제품보기</a>
+              <Link to="/">제품보기</Link>
             </li>
             <li>
-              <a href>읽기</a>
+              <Link to="/">읽기</Link>
             </li>
             <li>
-              <a href>스토어</a>
+              <Link to="/">스토어</Link>
             </li>
             <li>
-              <a href>검색</a>
+              <Link to="/">검색</Link>
             </li>
           </div>
           <div className="navRight">
             <li>
-              <a href>로그인</a>
+              <Link to="/">로그인</Link>
             </li>
+            <button className="cartDot"></button>
           </div>
         </ul>
-      </header>
+      </nav>
     );
   }
 }
