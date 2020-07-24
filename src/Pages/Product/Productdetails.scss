@@ -1,0 +1,86 @@
+@import "./src/Common.scss";
+
+.Productdetails {
+  font-family: "Suisse Regular";
+  background-color: $lightColor;
+  color: $darkColor;
+  .details {
+    display: flex;
+    justify-content: flex-end;
+    height: 750px;
+    margin-top: 125px;
+    padding-bottom: 100px;
+
+    .logoAndImg {
+      display: flex;
+    }
+
+    .imageContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 50px;
+
+      img {
+        width: 520px;
+        height: 530px;
+      }
+    }
+  }
+
+  .productInfo {
+    width: 500px;
+    height: 510px;
+    margin-right: 25px;
+    padding-right: 25px;
+    display: flex;
+    flex-direction: column;
+
+    .sortContainer {
+      display: flex;
+
+      .circlePoint {
+        list-style: disc;
+        margin-left: 30px;
+      }
+    }
+
+    .productName {
+      display: flex;
+
+      .name {
+        font-weight: normal;
+        margin: 25px 0;
+        font-size: 30px;
+      }
+    }
+
+    .cartAdd {
+      width: 500px;
+      margin-right: 25px;
+      padding-right: 25px;
+
+      .cartBtn {
+        width: inherit;
+      }
+    }
+
+    .productExplanation {
+      border-bottom: 2px solid black;
+      padding-bottom: 20px;
+    }
+
+    .infoContainer {
+      .infoList li {
+        padding: 10px 0;
+        border-bottom: 1px solid gray;
+
+        &:last-child {
+          border: none;
+        }
+      }
+      .skinTypeBox {
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ import "./Nav.scss";
 class Nav extends React.Component {
   render() {
     return (
-      <header className="Nav">
+      <nav className="Nav">
         <ul className="navList">
           <div className="navLeft">
             <li>
@@ -28,7 +28,7 @@ class Nav extends React.Component {
             <button className="cartDot"></button>
           </div>
         </ul>
-      </header>
+      </nav>
     );
   }
 }

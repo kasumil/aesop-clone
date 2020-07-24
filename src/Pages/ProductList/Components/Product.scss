@@ -11,9 +11,15 @@
     background-color: $lightGray;
   }
 
-  img {
-    max-width: 300px;
-    height: 300px;
+  .imgContainer {
+    display: flex;
+    align-items: flex-end;
+    width: 300px;
+    height: 430px;
+
+    img {
+      width: 100%;
+    }
   }
 
   .productInfo {

@@ -28,14 +28,20 @@
 
         .slick-prev:before {
           background-color: $darkColor;
+          content: "<";
           padding: 30px;
         }
 
         .slick-next:before {
           background-color: $darkColor;
+          content: ">";
           padding: 30px;
         }
       }
     }
   }
+}
+
+.slick-disabled {
+  display: none !important;
 }
