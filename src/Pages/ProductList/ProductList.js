@@ -1,14 +1,29 @@
 import React from "react";
+import Productfilternav from "../../Components/Productfilternav";
+import Nav from "../../Components/Nav";
+import Productslider from "./Components/Productslider";
+import { productListMockUpData } from "../../config";
+import "./ProductList.scss";
 
 class ProductList extends React.Component {
+  state = {
+    products: [],
+  };
+
+  componentDidMount() {
+    fetch(`${productListMockUpData}`)
+      .then((res) => res.json())
+      .then((res) => this.setState({ products: res.data }));
+  }
+
   render() {
+    const { products } = this.state;
+
     return (
       <div className="ProductList">
-        <section className="ProductListContainer"
-          <head>
-            ㅇㄹ
-          </head>
-        </section>
+        <Nav />
+        <Productfilternav products={products} />
+        <Productslider products={products} />
       </div>
     );
   }
