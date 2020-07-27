@@ -6,7 +6,7 @@
   padding-top: 26px;
   background-color: transparent;
   font-family: "Suisse Regular", sans-serif;
-  color: $darkColor;
+  color: $fontDark;
 
   .navList {
     width: 100%;
@@ -21,7 +21,7 @@
 
       a {
         border-bottom: solid 1px transparent;
-        color: $darkColor;
+        color: $fontDark;
         text-decoration: none;
         cursor: pointer;
 
@@ -33,7 +33,7 @@
           margin-top: 2px;
           display: block;
           content: "";
-          border-bottom: solid 1px $darkColor;
+          border-bottom: solid 1px $fontDark;
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);

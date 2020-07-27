@@ -11,7 +11,7 @@ class Productslider extends React.Component {
     const { products } = this.props;
     const settings = {
       infinite: false,
-      speed: 300,
+      speed: 600,
       arrows: true,
       slidesToShow: 3,
       slidesToScroll: 1,

@@ -16,14 +16,14 @@
 
       .descriptionName {
         font-weight: normal;
-        color: $darkColor;
+        color: $fontDark;
         font-size: x-large;
       }
     }
 
     .descriptionInfo {
       font-weight: normal;
-      color: $darkColor;
+      color: $fontDark;
       line-height: 1.6;
     }
   }
@@ -41,7 +41,7 @@
 
         .productText {
           font-weight: normal;
-          color: $darkColor;
+          color: $fontDark;
         }
 
         .productAllViewIcon {

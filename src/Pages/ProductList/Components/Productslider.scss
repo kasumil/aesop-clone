@@ -6,14 +6,13 @@
   }
 
   .dark {
-    background-color: $darkColor;
+    background-color: $grayColor;
   }
 
   .SliderContainer {
     display: flex;
     overflow: hidden;
-    background-color: $lightColor;
-    color: $darkColor;
+    color: $fontDark;
 
     .sliderContents {
       position: relative;
@@ -23,25 +22,25 @@
         position: absolute;
 
         .slick-next {
-          left: 1310px;
+          left: 1320px;
         }
 
         .slick-prev:before {
-          background-color: $darkColor;
+          background-color: $fontDark;
           content: "<";
           padding: 30px;
         }
 
         .slick-next:before {
-          background-color: $darkColor;
+          background-color: $fontDark;
           content: ">";
           padding: 30px;
+        }
+
+        .slick-disabled {
+          display: none !important;
         }
       }
     }
   }
-}
-
-.slick-disabled {
-  display: none !important;
 }

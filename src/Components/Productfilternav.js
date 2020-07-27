@@ -1,11 +1,12 @@
 import React from "react";
-import * as config from "../config";
+import { aesopLogoPath } from "../config";
 import "./Productfilternav.scss";
 
 class Productfilternav extends React.Component {
   render() {
     const { products } = this.props;
-    const path = config.aesopLogoPath;
+    const path = aesopLogoPath;
+
     return (
       <section className="Productfilternav">
         <div className="logoContainer">
