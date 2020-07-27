@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "../../../../Components/Nav/Nav";
-import * as config from "../../../../config";
+import { aesopLogoPath } from "../../../../config";
 import "./CitrusFeed.scss";
 
 class CitrusFeed extends React.Component {
@@ -36,14 +36,13 @@ class CitrusFeed extends React.Component {
   }
 
   handleScroll = () => {
-    const currentY = window.scrollY;
-    this.setState({ currentScrollY: currentY });
+    const currentScrollY = window.scrollY;
+    this.setState({ currentScrollY });
   };
 
   render() {
-    const path = config.aesopLogoPath;
     return (
-      <section className="productContainer">
+      <section className="CitrusFeed">
         <Nav fixedNav={this.state.fixedNav} />
         <div className="logoContainer">
           <svg
@@ -54,11 +53,11 @@ class CitrusFeed extends React.Component {
           >
             <title id="ca6be9cd-5480-4526-b1d6-17bb54dbe2b2">Aesop logo</title>
             <g>
-              <path class="NavLogo-icon--path" d={path.a}></path>
-              <path class="NavLogo-icon--path" d={path.e}></path>
-              <path class="NavLogo-icon--path" d={path.s}></path>
-              <path class="NavLogo-icon--path" d={path.o}></path>
-              <path class="NavLogo-icon--path" d={path.p}></path>
+              <path class="NavLogo-icon--path" d={aesopLogoPath.a}></path>
+              <path class="NavLogo-icon--path" d={aesopLogoPath.e}></path>
+              <path class="NavLogo-icon--path" d={aesopLogoPath.s}></path>
+              <path class="NavLogo-icon--path" d={aesopLogoPath.o}></path>
+              <path class="NavLogo-icon--path" d={aesopLogoPath.p}></path>
               <rect
                 x="131.8"
                 y="13.5"
@@ -66,7 +65,7 @@ class CitrusFeed extends React.Component {
                 width="44.3"
                 height="5"
               ></rect>
-              <path class="NavLogo-icon--path" d={path.corp}></path>
+              <path class="NavLogo-icon--path" d={aesopLogoPath.corp}></path>
             </g>
           </svg>
         </div>
@@ -83,7 +82,7 @@ class CitrusFeed extends React.Component {
               지금 보기
               <svg className="linkIcon" role="img" viewBox="0 0 50 50">
                 <g>
-                  <path d={path.arrow}></path>
+                  <path d={aesopLogoPath.slideArrow}></path>
                 </g>
               </svg>
             </div>

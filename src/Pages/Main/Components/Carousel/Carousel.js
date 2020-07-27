@@ -1,5 +1,5 @@
 import React from "react";
-import * as config from "../../../../config";
+import { aesopLogoPath } from "../../../../config";
 import "./Carousel.scss";
 
 class Carousel extends React.Component {
@@ -29,7 +29,7 @@ class Carousel extends React.Component {
   }
 
   handleInitData = () => {
-    fetch("http://localhost:3000/data/mockdata.json")
+    fetch("http://localhost:3000/data/maindata.json")
       .then((res) => res.json())
       .then((res) => {
         if (res.result === "SUCCESS") {
@@ -83,14 +83,11 @@ class Carousel extends React.Component {
   };
 
   render() {
-    const arrow = config.slideArrow;
     const itemList = this.itemsToDisplay();
 
     return (
       <>
-        <div
-          className={this.props.firstFeed ? "ItemSlide" : "ItemSlideIsHidden"}
-        >
+        <div className={this.props.firstFeed ? "Carousel" : "HiddenCarousel"}>
           <div
             className="itemCarousel"
             onMouseEnter={this.cursorInArrows}
@@ -106,17 +103,18 @@ class Carousel extends React.Component {
               >
                 <svg role="img" viewBox="0 0 50 50">
                   <g>
-                    <polygon points={arrow}></polygon>
+                    <polygon points={aesopLogoPath.slideArrow}></polygon>
                   </g>
                 </svg>
               </button>
             </div>
             <div className="listedItem">
+              {/* 2,6은 내가 추가한 것 */}
               {itemList.map((el) => (
                 <div className="eachItem">
                   <img alt="" src={el.image_url} />
                   <p>{el.product__name}</p>
-                  <p>{el.product__description}</p>
+                  <p className="briefDesc">{el.product__description}</p>
                 </div>
               ))}
             </div>
@@ -130,7 +128,7 @@ class Carousel extends React.Component {
               >
                 <svg role="img" viewBox="0 0 50 50">
                   <g>
-                    <polygon points={arrow}></polygon>
+                    <polygon points={aesopLogoPath.slideArrow}></polygon>
                   </g>
                 </svg>
               </button>

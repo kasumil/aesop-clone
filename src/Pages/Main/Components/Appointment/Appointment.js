@@ -5,9 +5,7 @@ class Appointment extends React.Component {
   render() {
     return (
       <section
-        className={
-          this.props.secondFeed ? "Appointment" : "AppointmentIsHidden"
-        }
+        className={this.props.secondFeed ? "Appointment" : "HiddenAppointment"}
       >
         <div className="appointmentContent">
           <p className="apTitle">페이셜 어포인트먼트</p>

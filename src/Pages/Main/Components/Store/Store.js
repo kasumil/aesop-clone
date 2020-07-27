@@ -4,7 +4,7 @@ import "./Store.scss";
 class Store extends React.Component {
   render() {
     return (
-      <div className={this.props.thirdFeed ? "Store" : "StoreIsHidden"}>
+      <div className={this.props.thirdFeed ? "Store" : "HiddenStore"}>
         <div className="storeContent">
           <p className="storeTitle1">방문</p>
           <p className="storeTitle2">신규 스토어: 이솝 롯데 수지</p>

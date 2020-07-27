@@ -1,9 +1,9 @@
 @import "./src/Common.scss";
 
-.ItemSlideIsHidden {
+.HiddenCarousel {
   opacity: 0;
 }
-.ItemSlide {
+.Carousel {
   width: 100%;
   height: 840px;
   padding-top: 50px;
@@ -75,6 +75,10 @@
         img {
           margin-top: 50px;
           height: 400px;
+        }
+
+        .briefDesc {
+          color: $fontLight;
         }
       }
     }

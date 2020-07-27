@@ -2,34 +2,29 @@
   "result": "SUCCESS",
   "data": [
     {
-      "product__name": "아이 리무버",
-      "product__description": "눈 주위의 민감한 피부를 달래고 진정시켜주는",
-      "image_url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-small.png?context=bWFzdGVyfGltYWdlc3wxMjM3Mjh8aW1hZ2UvcG5nfGltYWdlcy9oOGIvaGExLzg4MDUwNzMxNTgxNzQucG5nfDFhOTdhMzRiOTE3NTY3MGIwZmQ3NjcxNzRjMWMzMTJjYWZlMTdiZWRjZDJlYjdiNzEyOWVhM2FiMTMyYzk5NWU "
+      "product__name": "프림로즈 페이셜 클렌징 마스크",
+      "product__description": "식물성 오일이 피부에 영양분을 공급, 상쾌함을 더하는 클렌징 마스크",
+      "image_url": "https://www.aesop.com//medias/Aesop-Skin-Camellia-Nut-Facial-Hydrating-Cream-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzMDE2NDF8aW1hZ2UvcG5nfGltYWdlcy9oMDYvaDRmLzg3OTc0MzY3MDY4NDYucG5nfDYzZWEwM2RiZmNmNWY0OGExZjU5NmIxNWQzZmEwMjkxMWRkYzkzZTgwYjA2OGJjMDU3ZDAyYWYwOTlkOGIwNzM"
     },
     {
       "product__name": "파슬리 씨드 페이셜 클렌징 오일",
-      "product__description": "진한 메이크업도 부드럽고",
-      "image_url": "https://www.aesop.com/medias/Aesop-Skin-Parsley-Seed-Facial-Cleansing-Oil-200mL-small.png?context=bWFzdGVyfGltYWdlc3wxNDkxMzF8aW1hZ2UvcG5nfGltYWdlcy9oMDUvaDIyLzg3OTc0NDYyNDIzMzQucG5nfDdiMDQ3NDcxNDczNDU3NzkxYzYwMzExM2UwZTRhMTZlNGYzNDNkM2NlZDljZDNhMTBjZjYzYWMyMGUwZGM2OWQ "
+      "product__description": "진한 메이크업도 부드럽고 깨끗하게 닦아주는 오일 타입의 클렌저",
+      "image_url": "https://www.aesop.com//medias/Aesop-Skin-Camellia-Nut-Facial-Hydrating-Cream-60mL-medium.png?context=bWFzdGVyfGltYWdlc3wxODI1ODh8aW1hZ2UvcG5nfGltYWdlcy9oMzAvaDE4Lzg3OTc0NDA0NzUxNjYucG5nfGJhOWUzZWUzZTU4ZWZhYjU3MjcxYWY1NzVkZTM0MzhlNGJiZjQ4MDBjODJjMmYyZTJiNjczMmQ4YmNmM2Y3MmI"
     },
     {
-      "product__name": "퓨리파잉 페이셜 크림 클렌저",
-      "product__description": "가벼운 메이크업을 지워주고",
-      "image_url": "https://www.aesop.com/medias/Aesop-Skin-Purifying-Facial-Cream-Cleanser-100mL-small.png?context=bWFzdGVyfGltYWdlc3wxNjM2MDR8aW1hZ2UvcG5nfGltYWdlcy9oZmQvaGFlLzg3OTc0NDY1MDQ0NzgucG5nfDM0ZmFlMGFiYWI1MjBjZGFiNDZmNmUxMzRiMWM3ZjNmYTgxNTk1YjY0MThkZjliNDYyZTdlNDcyMTFhODM4Mjc "
+      "product__name": "라이트웨이트 페이셜 하이드레이팅 세럼",
+      "product__description": "알로에 베라와 프로비타민 B5가 피부의 진정을 도와주면서 가볍고 빠르게 흡수되는 세럼",
+      "image_url": "https://www.aesop.com/medias/Aesop-Skin-Lightweight-Facial-Hydrating-Serum-100mL-Small-455x524px.png?context=bWFzdGVyfGltYWdlc3wxMzQwOTB8aW1hZ2UvcG5nfGltYWdlcy9oNGEvaGNmLzkxNDY3NjYzOTMzNzQucG5nfGMyMDdhYTY5YzU0MzZlMzMwYzA0MDE2ODZlN2UxZGEyNzVjOTIxY2YzNjRiOTQyNWJmNDg2YjI0YzE3MGJmNDA "
     },
     {
-      "product__name": "페뷸러스 페이스 클렌저",
-      "product__description": "수분 공급을 위한 보태니컬 성분이",
-      "image_url": "https://www.aesop.com/medias/Aesop-Skin-Fabulous-Face-Cleanser-100mL-small.png?context=bWFzdGVyfGltYWdlc3wxMTc3MDN8aW1hZ2UvcG5nfGltYWdlcy9oNzYvaDNmLzg4MTUwMjI2Njk4NTQucG5nfDg4NTljZjVjYjkyNTQyOTMzNjlhYTU1YmU3YThkNmE1ODkzYWYxZmNlMzExZDljNjVmNTU4ZGE1YTAxZTc2M2M "
+      "product__name": "비 트리플 씨 페이셜 밸런싱 젤",
+      "product__description": "강력한 효과의 비타민 C유도체와 프로비타민 B5를 전하는 젤 타입의 수분 트리트먼트",
+      "image_url": "https://www.aesop.com/medias/Aesop-Skin-B-Triple-C-Facial-Balancing-Gel-60mL-Small-491x261px.png?context=bWFzdGVyfGltYWdlc3w4ODY0NHxpbWFnZS9wbmd8aW1hZ2VzL2g4Ni9oYjYvOTE0Njc1NzE1Mjc5OC5wbmd8MzJlYzU0ZjQ3ZGRhMDU3NjE4MmZiNWY2MWZmODE4Zjg4OWJkYzhlYzU1OGZkMWM4Y2QyM2I4NjJkZTMwZmYwNQ "
     },
     {
-      "product__name": "파슬리 씨드 페이셜 클렌저",
-      "product__description": "피부를 건조하지 않고,",
-      "image_url": "https://www.aesop.com/medias/Aesop-SkinParsley-Seed-Facial-Cleanser-100mL-small.png?context=bWFzdGVyfGltYWdlc3wxMTMyMzN8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaGY3Lzg4MTUwMjM3MTg0MzAucG5nfDRhNzg4MjA3MjcyMGRhMTVhOWZmZjI3NTU2OTM2MjhjZjQ1MjZiZTQ3OTdkMmRjMDlhZWZmOTY0NTMwNWVhYzM "
-    },
-    {
-      "product__name": "어메이징 페이스 클렌저",
-      "product__description": "부드러운 거품이 피부를 ",
-      "image_url": "https://www.aesop.com/medias/Large-PNG-Aesop-Skin-Amazing-Face-Cleanser-100mL-small.png?context=bWFzdGVyfGltYWdlc3wxMTgxOTJ8aW1hZ2UvcG5nfGltYWdlcy9oY2QvaDBiLzg4MTUyNDA5MDQ3MzQucG5nfDFhYWYyYTBjYTBlOTlkZWI1ODUyMGM2NWFhNTI5YzRlMzk0N2M5YzVjNjJmYzE4YWQ3NmE0YzBkZGVmZDZkN2U "
+      "product__name": "아이 리무버",
+      "product__description": "눈 주위의 민감한 피부를 달래고 진정시켜주는 마트리카리아가 포함된 부드러운 오일 제형의 아이 메이크업 리무브",
+      "image_url": "https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-small.png?context=bWFzdGVyfGltYWdlc3wxMjM3Mjh8aW1hZ2UvcG5nfGltYWdlcy9oOGIvaGExLzg4MDUwNzMxNTgxNzQucG5nfDFhOTdhMzRiOTE3NTY3MGIwZmQ3NjcxNzRjMWMzMTJjYWZlMTdiZWRjZDJlYjdiNzEyOWVhM2FiMTMyYzk5NWU "
     }
   ]
 }
