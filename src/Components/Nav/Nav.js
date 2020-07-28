@@ -2,7 +2,6 @@ import React from "react";
 import SkinSideBar from "./SkinSideBar";
 import { Link } from "react-router-dom";
 import { aesopLogoPath } from "../../config";
-
 import "./Nav.scss";
 
 class Nav extends React.Component {
@@ -31,7 +30,7 @@ class Nav extends React.Component {
   render() {
     return (
       <>
-        <nav className={this.props.fixedNav ? "Nav Fixed" : "Nav"}>
+        <nav className={this.props.fixedNav ? "NavFixed" : "Nav"}>
           <ul className="navList">
             <div className="navLeft">
               <li>
