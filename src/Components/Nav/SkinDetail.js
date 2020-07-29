@@ -4,16 +4,16 @@ import "./SkinDetail.scss";
 
 class SkinDetail extends React.Component {
   render() {
-    const skinProduct = this.props.skinCategory;
-    const matchingIdx = Number(this.props.categoryKey) - 1;
+    const { skinCategory, categoryKey } = this.props;
+    const matchingIdx = Number(categoryKey) - 1;
 
     return (
       <div className="SkinDetail">
         <div className="panelList showAll">
           <Link className="panelLink" to="/">
-            {skinProduct[matchingIdx].name} 모두 보기
+            {skinCategory[matchingIdx].name} 모두 보기
           </Link>
-          {skinProduct[matchingIdx].product.map((el) => (
+          {skinCategory[matchingIdx].product.map((el) => (
             <ul className="productInfo" id={el.id}>
               <Link className="productLink" to="/">
                 <li>

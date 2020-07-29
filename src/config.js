@@ -15,6 +15,8 @@ export const aesopLogoPath = {
   arrow: "M30.1,5.3L50,25.1L30.1,45h-6.6l18-17.6H0v-4.8h41.5l-18-17.6h6.6V5.3z",
 
   slideArrow: "25,31.3 4.2,10.5 0.1,14.6 25,39.5 50,14.6 45.9,10.5 ",
+
+  closeBtn: "50,5 45,0 25,20 5,0 0,5 20,25 0,45 5,50 25,30 45,50 50,45 30,25",
 };
 
 export const productDetailTopImg =

@@ -9,7 +9,6 @@ class SkinSideBar extends React.Component {
     this.state = {
       shownThird: false,
       skinCategory: [],
-
       categoryKey: 0,
     };
   }
@@ -20,7 +19,6 @@ class SkinSideBar extends React.Component {
 
   handleSkinCategoryData = () => {
     fetch("http://localhost:3000/data/skindata.json")
-      // fetch("http://10.58.5.221:8080/main")
       .then((res) => res.json())
       .then((res) => {
         if (res.result === "SUCCESS") {
@@ -33,12 +31,9 @@ class SkinSideBar extends React.Component {
 
   openThird = (e) => {
     this.setState({ shownThird: true, categoryKey: e.target.id });
-    console.log(this.state.skinCategory);
   };
 
   render() {
-    console.log(this.state.categoryName);
-
     const { shownThird, skinCategory, categoryKey } = this.state;
     return (
       <>

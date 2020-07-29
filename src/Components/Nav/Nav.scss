@@ -11,6 +11,7 @@
 
 .NavFixed {
   @extend .Nav;
+  top: 0;
   position: fixed;
   border: 1px solid #dad9d0;
   border-width: 0 0 1px 0;
@@ -86,13 +87,13 @@
 .overlay {
   height: 100%;
   width: 0;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: $lightColor;
   border-right: 1px solid $grayColor;
   font-family: "Suisse Regular", sans-serif;
   color: $fontDark;
-  position: fixed;
   z-index: 1;
   overflow-x: hidden;
   transition: 0.5s;

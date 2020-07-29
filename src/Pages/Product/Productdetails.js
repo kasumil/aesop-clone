@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "../../Components/Nav/Nav";
+import CartMessage from "../../Components/Cart/CartMessage";
 import Aesoplogo from "../../Components/Aesoplogo";
 import Footer from "../../Components/Footer/Footer";
 import Recommendproduct from "./Components/Recommendproduct";
@@ -14,6 +15,7 @@ class Productdetails extends React.Component {
   state = {
     products: [],
     isToggleOn: false,
+    shownMessage: false,
   };
 
   addViewHanddler = (e) => {
@@ -28,8 +30,35 @@ class Productdetails extends React.Component {
       .then((res) => res.json())
       .then((res) => this.setState({ products: res.products }));
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { shownMessage } = this.state;
+    if (prevState.shownMessage !== shownMessage) {
+      this.setState({ shownMessage: true });
+    }
+  }
+
+  //카트에 아이템 추가시 서버에 post 보내기
+  addCartItem = () => {
+    const { shownMessage } = this.state;
+    fetch("http://10.58.7.53:8000/cart", {
+      method: "POST",
+      headers: {
+        Authorization: localStorage.getItem("aesopToken"),
+      },
+      body: JSON.stringify({
+        product_id: 40,
+        pricebysize_id: 1,
+        quantity: 1,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res.data));
+    this.setState({ shownMessage: !shownMessage });
+  };
+
   render() {
-    const { products } = this.state;
+    const { products, shownMessage } = this.state;
     const { addViewHanddler } = this;
 
     const settings = {
@@ -40,6 +69,7 @@ class Productdetails extends React.Component {
       slidesToScroll: 1,
       variableWidth: true,
     };
+
     return (
       <section
         className={
@@ -49,6 +79,7 @@ class Productdetails extends React.Component {
         }
       >
         {/* Top Details */}
+
         <div
           className={
             this.state.isToggleOn === true
@@ -80,6 +111,7 @@ class Productdetails extends React.Component {
             </ul>
           </div>
         </div>
+        {shownMessage && <CartMessage />}
         <Nav />
         <article className="details">
           <div className="logoAndImg">
@@ -147,7 +179,7 @@ class Productdetails extends React.Component {
                 </li>
               </ul>
               <div className="cartAdd">
-                <button className="cartBtn">
+                <button className="cartBtn" onClick={this.addCartItem}>
                   <span>카트에 추가 — ₩ 30,000</span>
                 </button>
               </div>
