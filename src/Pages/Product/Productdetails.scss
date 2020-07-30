@@ -52,6 +52,26 @@
 
         li {
           font-size: 14px;
+          text-transform: uppercase;
+          cursor: pointer;
+
+          a {
+            text-decoration: none;
+            color: $fontDark;
+          }
+        }
+
+        li:after {
+          display: block;
+          content: "";
+          border-bottom: 1px solid black;
+          transform: scaleX(0);
+          transition: transform 300ms ease-in-out;
+        }
+
+        li:hover:after {
+          transform: scaleX(1);
+          transform-origin: left;
         }
 
         .circlePoint {
@@ -162,7 +182,7 @@
   //<-- Center Explanation -->
   .useExplanation {
     display: flex;
-    height: 100vh;
+    height: 940px;
 
     .productVideoContainer {
       width: calc(100% * 1 / 2);
@@ -186,7 +206,7 @@
 
     .imgBox {
       position: relative;
-      height: 980px;
+      height: 940px;
 
       .explanImg {
         width: 50vw;
@@ -271,8 +291,8 @@
       .explanList {
         .howToUse {
           h2 {
-            font-family: "Zapf";
-            font-weight: normal;
+            font-family: "Zapf", serif;
+            font-weight: lighter;
             color: $fontDark;
             margin: 25px 0;
             font-size: 30px;
@@ -330,6 +350,7 @@
 
         p {
           color: $fontDark;
+          font-family: "Suisse Regular", sans-serif;
           line-height: 1.5;
         }
       }
@@ -351,7 +372,7 @@
         width: 100%;
 
         .slick-next {
-          left: 1220px;
+          left: 1350px;
         }
 
         .slick-prev:before {
