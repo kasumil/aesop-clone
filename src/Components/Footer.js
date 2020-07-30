@@ -3,7 +3,7 @@ import "./Footer.scss";
 
 class Footer extends React.Component {
   state = {
-    focused: false,
+    emailFocused: false,
   };
 
   focusEmailInput = () => {
@@ -11,15 +11,17 @@ class Footer extends React.Component {
   };
 
   render() {
-    const { focused } = this.state;
+    const { emailFocused } = this.state;
     return (
-      <Fragment>
+      <>
         <footer className="Footer">
           <div className="footerContent">
             <div className="newsLetter">
               <p className="subscribe">구독하기</p>
               <div className="inputBox">
-                <span className={focused ? "textEmail:focus" : "textEmail"}>
+                <span
+                  className={emailFocused ? "textEmail:focus" : "textEmail"}
+                >
                   이메일주소
                 </span>
                 <div
@@ -75,7 +77,7 @@ class Footer extends React.Component {
           <p>© 이솝</p>
           <p>대한민국</p>
         </div>
-      </Fragment>
+      </>
     );
   }
 }

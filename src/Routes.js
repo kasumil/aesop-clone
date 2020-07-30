@@ -19,7 +19,7 @@ class Routes extends React.Component {
           <Route exact path="/Nav" component={Nav} />
           <Route exact path="/Mapcomponent" component={Mapcomponent} />
           <Route exact path="/skin" component={ProductList} />
-          <Route exact path="/skin/details" component={Productdetails} />
+          <Route exact path="/skin/details/:id" component={Productdetails} />
         </Switch>
       </Router>
     );

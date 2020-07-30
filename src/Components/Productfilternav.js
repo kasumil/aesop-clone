@@ -46,13 +46,14 @@ class Productfilternav extends React.Component {
                 <li>
                   <span className="start">모든 스킨</span>
                 </li>
-                {products.map((el) => {
-                  return (
-                    <li>
-                      <span>{el.info.catagoryname}</span>
-                    </li>
-                  );
-                })}
+                {products.category &&
+                  products.category.map((el) => {
+                    return (
+                      <li key={el.id}>
+                        <span>{el.name}</span>
+                      </li>
+                    );
+                  })}
               </ul>
               <div className="productFilter">
                 <button className="filterBtn">
