@@ -1,10 +1,21 @@
 import React from "react";
 import { aesopLogoPath } from "../config";
+import * as productList_API from "../config";
 import "./Productfilternav.scss";
 
 class Productfilternav extends React.Component {
+  state = {
+    category: [],
+  };
+
+  componentDidMount() {
+    fetch(productList_API)
+      .then((res) => res.json())
+      .then((res) => this.setState({ category: res.data.category }));
+  }
+
   render() {
-    const { products } = this.props;
+    const { category } = this.state;
     const path = aesopLogoPath;
 
     return (
@@ -46,8 +57,8 @@ class Productfilternav extends React.Component {
                 <li>
                   <span className="start">모든 스킨</span>
                 </li>
-                {products.category &&
-                  products.category.map((el) => {
+                {category &&
+                  category.map((el) => {
                     return (
                       <li key={el.id}>
                         <span>{el.name}</span>

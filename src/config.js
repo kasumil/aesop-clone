@@ -29,4 +29,10 @@ export const recommendMockUpData = "http://localhost:3000/data/recommend.json";
 
 export const PLData = "http://localhost:3000/data/PL.json";
 
-export const PDData = "http://localhost:3000/data/PD.json/";
+export const PDData = "http://localhost:3000/data/PD.json";
+
+export const PDMockData = "http://localhost:3000/data/PDD.json";
+
+export const productList_API = "http://10.58.6.25:8080/board/1";
+
+export const productDetail_API = "http://10.58.6.25:8080/board/read/";

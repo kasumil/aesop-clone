@@ -2,7 +2,7 @@ import React from "react";
 import Productfilternav from "../../Components/Productfilternav";
 import Nav from "../../Components/Nav";
 import Productslider from "./Components/Productslider";
-import { PLData } from "../../config";
+import * as productList_API from "../../config";
 import "./ProductList.scss";
 
 class ProductList extends React.Component {
@@ -13,7 +13,7 @@ class ProductList extends React.Component {
   };
 
   componentDidMount() {
-    fetch(`${PLData}`)
+    fetch(productList_API)
       .then((res) => res.json())
       .then((res) => this.setState({ products: res.data }));
   }
@@ -22,7 +22,7 @@ class ProductList extends React.Component {
     return (
       <div className="ProductList">
         <Nav />
-        <Productfilternav products={products} />
+        <Productfilternav />
         <Productslider products={products} />
       </div>
     );
