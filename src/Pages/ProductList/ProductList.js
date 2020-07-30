@@ -2,10 +2,6 @@ import React from "react";
 import Productfilternav from "../../Components/Productfilternav";
 import Nav from "../../Components/Nav";
 import Productslider from "./Components/Productslider";
-<<<<<<< HEAD
-=======
-import { PLData } from "../../config";
->>>>>>> master
 import "./ProductList.scss";
 
 class ProductList extends React.Component {
@@ -16,11 +12,7 @@ class ProductList extends React.Component {
   };
 
   componentDidMount() {
-<<<<<<< HEAD
     fetch("http://10.58.6.25:8080/board/1")
-=======
-    fetch(`${PLData}`)
->>>>>>> master
       .then((res) => res.json())
       .then((res) => this.setState({ products: res.data }));
   }

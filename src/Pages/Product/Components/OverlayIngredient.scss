@@ -1,11 +1,9 @@
 @import "./src/Common.scss";
-<<<<<<< HEAD
+
 .Offingredient {
   display: none;
 }
-=======
 
->>>>>>> master
 .overlay {
   width: calc(100% * 1 / 2);
   top: 0;
@@ -38,30 +36,19 @@
       align-items: center;
       width: 100%;
       height: 50%;
-<<<<<<< HEAD
       padding: 0 180px;
-=======
-      padding: 0 200px;
->>>>>>> master
 
       .content {
         margin: 50px 0;
 
         li {
           color: $fontDark;
-<<<<<<< HEAD
           font-size: 14px;
           margin: 25px 0;
           line-height: 1.7;
 
           &:last-child {
             font-size: 16px;
-=======
-          margin: 30px 0;
-
-          &:last-child {
-            font-size: 18px;
->>>>>>> master
           }
         }
       }
