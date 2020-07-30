@@ -1,6 +1,5 @@
 @import "./src/Common.scss";
 
-//<-- onClick IngredienPage -->
 .darkTop {
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 2;
@@ -14,7 +13,6 @@
   font-family: "Suisse Regular";
   color: $fontDark;
 
-  //<-- Top Details -->
   .details {
     display: flex;
     justify-content: flex-end;
@@ -59,19 +57,19 @@
             text-decoration: none;
             color: $fontDark;
           }
-        }
 
-        li:after {
-          display: block;
-          content: "";
-          border-bottom: 1px solid black;
-          transform: scaleX(0);
-          transition: transform 300ms ease-in-out;
-        }
+          &:after {
+            display: block;
+            content: "";
+            border-bottom: 1px solid black;
+            transform: scaleX(0);
+            transition: transform 300ms ease-in-out;
+          }
 
-        li:hover:after {
-          transform: scaleX(1);
-          transform-origin: left;
+          &:hover:after {
+            transform: scaleX(1);
+            transform-origin: left;
+          }
         }
 
         .circlePoint {
@@ -179,50 +177,9 @@
     }
   }
 
-  //<-- Center Explanation -->
   .useExplanation {
     display: flex;
     height: 940px;
-
-    .productVideoContainer {
-      width: calc(100% * 1 / 2);
-      top: 0;
-      left: 0;
-      animation: 1000ms 1ms slide-right--100 cubic-bezier(0.32, 0.24, 0.15, 1)
-        forwards;
-      transform: translate(-100%, 0);
-      background-color: $lightColor;
-      height: 100%;
-
-      @keyframes slide-right--100 {
-        0% {
-          transform: translate(-200%, 0);
-        }
-        100% {
-          transform: translate(0, 0);
-        }
-      }
-    }
-
-    .productVideoContainer {
-      width: calc(100% * 1 / 2);
-      top: 0;
-      left: 0;
-      animation: 1000ms 1ms slide-right--100 cubic-bezier(0.32, 0.24, 0.15, 1)
-        forwards;
-      transform: translate(-100%, 0);
-      background-color: $lightColor;
-      height: 100%;
-
-      @keyframes slide-right--100 {
-        0% {
-          transform: translate(-200%, 0);
-        }
-        100% {
-          transform: translate(0, 0);
-        }
-      }
-    }
 
     .imgBox {
       position: relative;
@@ -341,7 +298,6 @@
     }
   }
 
-  //<-- Bottom Recommend -->
   .recommend {
     display: flex;
 

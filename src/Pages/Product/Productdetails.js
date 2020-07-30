@@ -6,6 +6,7 @@ import Aesoplogo from "../../Components/Aesoplogo";
 import Footer from "../../Components/Footer";
 import Recommendproduct from "./Components/Recommendproduct";
 import Slider from "react-slick";
+import * as productDetail_API from "../../config";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Productdetails.scss";
@@ -32,7 +33,7 @@ class Productdetails extends React.Component {
   };
 
   componentDidMount() {
-    fetch(`http://10.58.6.25:8080/board/read/${this.props.match.params.id}`)
+    fetch(productDetail_API + this.props.match.params.id)
       .then((res) => res.json())
       .then((res) => this.setState({ item: res.data[0] }));
   }

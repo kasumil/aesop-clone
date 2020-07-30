@@ -1,5 +1,6 @@
 import React from "react";
 import { aesopLogoPath } from "../config";
+import * as productList_API from "../config";
 import "./Productfilternav.scss";
 
 class Productfilternav extends React.Component {
@@ -8,7 +9,7 @@ class Productfilternav extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://10.58.6.25:8080/board/1")
+    fetch(productList_API)
       .then((res) => res.json())
       .then((res) => this.setState({ category: res.data.category }));
   }
