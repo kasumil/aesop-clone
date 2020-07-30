@@ -13,9 +13,11 @@ import "./Productdetails.scss";
 
 class Productdetails extends React.Component {
   state = {
-    products: [],
+    // products: [],
+    item: [],
     isToggleOn: false,
     shownMessage: false,
+    sizeId: 0,
   };
 
   addViewHanddler = (e) => {
@@ -26,9 +28,9 @@ class Productdetails extends React.Component {
   };
 
   componentDidMount() {
-    fetch(`${recommendMockUpData}`)
+    fetch("http://localhost:3000/data/pdexample.json")
       .then((res) => res.json())
-      .then((res) => this.setState({ products: res.products }));
+      .then((res) => this.setState({ item: res.data }));
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -41,26 +43,27 @@ class Productdetails extends React.Component {
   //카트에 아이템 추가시 서버에 post 보내기
   addCartItem = () => {
     const { shownMessage } = this.state;
-    fetch("http://10.58.7.53:8000/cart", {
+    fetch("http://10.58.5.19:8000/cart", {
       method: "POST",
       headers: {
         Authorization: localStorage.getItem("aesopToken"),
       },
       body: JSON.stringify({
-        product_id: 40,
-        pricebysize_id: 1,
+        product_id: this.state.item[0].id,
+        pricebysize_id: this.state.item[0].size[0].id,
         quantity: 1,
+        isPlus: "True",
       }),
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res.data));
+    }).then((res) => {
+      res.json();
+    });
+    // .then((res) => console.log(res));
     this.setState({ shownMessage: !shownMessage });
   };
 
   render() {
-    const { products, shownMessage } = this.state;
+    const { products, shownMessage, item } = this.state;
     const { addViewHanddler } = this;
-
     const settings = {
       infinite: false,
       speed: 500,
@@ -112,7 +115,7 @@ class Productdetails extends React.Component {
           </div>
         </div>
         {shownMessage && <CartMessage />}
-        <Nav />
+        <Nav item={this.state.item} />
         <article className="details">
           <div className="logoAndImg">
             <div className="logoContainer">
@@ -122,12 +125,14 @@ class Productdetails extends React.Component {
             </div>
             <div className="imageContainer">
               <img
-                src={productDetailTopImg}
+                // src={productDetailTopImg}
+                src={item[0] && item[0].image_url}
                 alt="img
               "
               />
               <div>
-                <span>60 mL</span>
+                {/* <span>60 mL</span> */}
+                <span>{item[0] && item[0].size[0].size}</span>
               </div>
             </div>
           </div>
@@ -139,13 +144,15 @@ class Productdetails extends React.Component {
               </ul>
             </div>
             <div className="productName">
-              <h1 className="name">아이 리무버</h1>
+              {/* <h1 className="name">아이 리무버</h1> */}
+              <h1 className="name">{item[0] && item[0].name}</h1>
             </div>
             <div className="productExplanation">
-              <p className="explan">
+              {/* <p className="explan">
                 눈 주위의 민감한 피부를 달래고 진정시켜주는 마트리카리아가
                 포함된 부드러운 오일 제형의 아이 메이크업 리무브
-              </p>
+              </p> */}
+              <p className="explan">{item[0] && item[0].description}</p>
             </div>
             <div className="infoContainer">
               <ul className="infoList">
@@ -180,7 +187,8 @@ class Productdetails extends React.Component {
               </ul>
               <div className="cartAdd">
                 <button className="cartBtn" onClick={this.addCartItem}>
-                  <span>카트에 추가 — ₩ 30,000</span>
+                  {/* <span>카트에 추가 — ₩ 30,000</span> */}
+                  <span>카트에 추가 — {item[0] && item[0].size[0].price}</span>
                 </button>
               </div>
             </div>
@@ -267,7 +275,7 @@ class Productdetails extends React.Component {
           <div className="prodcutContainer">
             <div className="productWrapper">
               <Slider {...settings}>
-                {products.map((product) => (
+                {this.state.item.map((product) => (
                   <Recommendproduct
                     id={product.id}
                     title={product.title}

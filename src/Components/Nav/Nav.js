@@ -1,6 +1,7 @@
 import React from "react";
 import SkinSideBar from "./SkinSideBar";
 import Cart from "../../Components/Cart/Cart";
+import Login from "../../Pages/Login/Login";
 import { Link } from "react-router-dom";
 import { aesopLogoPath } from "../../config";
 import "./Nav.scss";
@@ -12,6 +13,8 @@ class Nav extends React.Component {
       style: { width: 0 },
       shownSecond: false,
       shownCart: false,
+      shownLogin: false,
+      email: "",
     };
   }
 
@@ -40,11 +43,24 @@ class Nav extends React.Component {
     }
   }
 
+  //로그인시 nav에 email뜨게 하는 함수
+  showID = (x) => {
+    this.setState({ email: x });
+  };
+
+  handleLogin = () => {
+    this.setState({ shownLogin: !this.state.shownLogin });
+  };
+
   render() {
-    const { shownCart } = this.state;
+    const { shownCart, shownLogin } = this.state;
+
     return (
       <>
-        {shownCart && <Cart shownCart={this.state.shownCart} />}
+        {shownCart && <Cart />}
+        {shownLogin && (
+          <Login showID={this.showID} handleLogin={this.handleLogin} />
+        )}
         <nav className={this.props.fixedNav ? "NavFixed" : "Nav"}>
           <ul className="navList">
             <div className="navLeft">
@@ -63,7 +79,9 @@ class Nav extends React.Component {
             </div>
             <div className="navRight">
               <li>
-                <Link to="/login">로그인</Link>
+                <Link onClick={this.handleLogin}>
+                  {this.state.email ? this.state.email : "로그인"}
+                </Link>
               </li>
               <button className="cartDot" onClick={this.showCart}></button>
             </div>

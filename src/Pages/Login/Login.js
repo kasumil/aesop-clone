@@ -24,7 +24,7 @@ class Login extends Component {
 
   // 로그인용 버튼
   hadleBtn = (e) => {
-    fetch("http://10.58.7.53:8000/user/sign-in", {
+    fetch("http://10.58.5.19:8000/user/sign-in", {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -35,8 +35,9 @@ class Login extends Component {
       .then((res) => {
         if (res.token) {
           localStorage.setItem("aesopToken", res.token);
-          this.props.history.push("/");
-          console.log(res.token);
+          //로그인시 nav에 email 전달하는 함수 (부모에게 전달)
+          this.props.showID(this.state.email);
+          this.props.handleLogin();
         }
       });
   };
@@ -47,6 +48,8 @@ class Login extends Component {
   };
 
   render() {
+    console.log(this.props);
+
     return (
       <div className="Login">
         <div className="modalBody">

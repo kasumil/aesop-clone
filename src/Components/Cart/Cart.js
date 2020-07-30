@@ -1,4 +1,6 @@
 import React from "react";
+import CartList from "./CartList";
+import CartSum from "./CartSum";
 import { aesopLogoPath } from "../../config";
 import "./Cart.scss";
 
@@ -6,38 +8,33 @@ class Cart extends React.Component {
   constructor() {
     super();
     this.state = {
+      cartShown: true,
       showSelectBox: false,
       selectedQuantity: 0,
-      cartShown: true,
+      cartData: [],
     };
   }
 
-  openSelectBox = () => {
-    this.setState({ showSelectBox: true });
-  };
-
-  closeSelectBox = (id) => {
-    this.setState({
-      showSelectBox: false,
-      selectedQuantity: id,
-    });
-    // 수량수정시 POST
-    // fetch("", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     cart_id: "",
-    //     quantity: id,
-    //   })
-    //     .then((res) => res.json)
-    //     .then((res) => localStorage.getItem("access_token", res.access_token)),
-    // });
-  };
+  //서버에서 카트 정보 받아오기 GET
+  componentDidMount() {
+    fetch("http://10.58.5.19:8000/cart", {
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("aesopToken"),
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => this.setState({ cartData: res.data }));
+  }
 
   closeCart = () => {
     this.setState({ cartShown: false });
   };
+
   render() {
-    const { showSelectBox, selectedQuantity, cartShown } = this.state;
+    const productId = this.props.productId;
+    const { cartShown } = this.state;
+
     return (
       <>
         {cartShown && (
@@ -57,77 +54,29 @@ class Cart extends React.Component {
                   </button>
                 </div>
               </div>
-              <div className="cartAdded">
-                <div className="productName">아이 리무버</div>
-                <div className="productSize">60mL</div>
-                <div className="productCount">
-                  {selectedQuantity === 0 && (
-                    <ul
-                      className={
-                        showSelectBox ? "selectClicked" : "selectQuantity "
-                      }
-                    >
-                      <li onClick={() => this.closeSelectBox(1)}>
-                        1
-                        <svg
-                          role="img"
-                          viewBox="0 0 50 50"
-                          onClick={this.openSelectBox}
-                        >
-                          <g>
-                            <polygon
-                              points={aesopLogoPath.slideArrow}
-                            ></polygon>
-                          </g>
-                        </svg>
-                      </li>
-                      <li onClick={() => this.closeSelectBox(2)}>2</li>
-                      <li onClick={() => this.closeSelectBox(3)}>3</li>
-                      <li onClick={() => this.closeSelectBox(4)}>4</li>
-                      <li onClick={() => this.closeSelectBox(5)}>5</li>
-                    </ul>
-                  )}
-                  {selectedQuantity !== 0 && (
-                    <ul
-                      className={
-                        showSelectBox ? "selectClicked" : "selectQuantity "
-                      }
-                    >
-                      <li className="setValue">
-                        {selectedQuantity}
-                        <svg
-                          role="img"
-                          viewBox="0 0 50 50"
-                          onClick={this.openSelectBox}
-                        >
-                          <g>
-                            <polygon
-                              points={aesopLogoPath.slideArrow}
-                            ></polygon>
-                          </g>
-                        </svg>
-                      </li>
-                      <div className="numList">
-                        <li onClick={() => this.closeSelectBox(1)}>1</li>
-                        <li onClick={() => this.closeSelectBox(2)}>2</li>
-                        <li onClick={() => this.closeSelectBox(3)}>3</li>
-                        <li onClick={() => this.closeSelectBox(4)}>4</li>
-                        <li onClick={() => this.closeSelectBox(5)}>5</li>
-                      </div>
-                    </ul>
-                  )}
-                </div>
-                <div class="productPrice">₩ 30,000</div>
-              </div>
+
+              {this.state.cartData.map((el, idx) => {
+                const productName = el.product;
+                const productSize = el.size;
+                const productPrice = el.price;
+                const cartId = idx;
+                const sizeId = el.id;
+
+                console.log(cartId, productName, productSize, sizeId);
+                return (
+                  <>
+                    <CartList
+                      productName={productName}
+                      productSize={productSize}
+                      productPrice={productPrice}
+                      cartId={cartId}
+                      sizeId={sizeId}
+                    />
+                  </>
+                );
+              })}
             </div>
-            <div className="cartSummary">
-              <span>전 제품 무료 배송 혜택을 즐겨보세요.</span>
-              <div className="totalPrice">
-                <span>소계(세금 포함)</span>
-                <span className="sum">₩ 113,000</span>
-              </div>
-              <button className="payBtn">결제하기</button>
-            </div>
+            <CartSum />
           </section>
         )}
       </>
