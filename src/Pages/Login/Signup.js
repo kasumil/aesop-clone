@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import * as signUpAPI from "../../config";
 import { withRouter } from "react-router-dom";
 import "./Signup.scss";
 
@@ -54,7 +55,7 @@ class Signup extends Component {
   };
 
   handleSingUP = (e) => {
-    fetch("http://10.58.7.53:8000/user/sign-up", {
+    fetch(signUpAPI, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -68,7 +69,7 @@ class Signup extends Component {
         if (res.token) {
           localStorage.setItem("aesop", res.token);
           alert("회원가입을 환영합니다.");
-          this.props.history.push("/Main");
+          this.props.history.push("/");
         } else {
           alert("이메일과 비밀번호를 확인해주세요.");
         }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import CartMessage from "../../Components/Cart/CartMessage";
 import Nav from "../../Components/Nav/Nav";
+import CartMessage from "../../Components/Cart/CartMessage";
 import OverlayIngredient from "./Components/OverlayIngredient";
 import Aesoplogo from "../../Components/Aesoplogo";
 import Footer from "../../Components/Footer/Footer";
@@ -37,9 +37,10 @@ class Productdetails extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/pdexample.json")
+    fetch(`http://15.164.220.49:8080/board/read/${this.props.match.params.id}`)
+      // fetch(productDetail_API + this.props.match.params.id)
       .then((res) => res.json())
-      .then((res) => this.setState({ item: res.data }));
+      .then((res) => this.setState({ item: res.data[0] }));
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -52,14 +53,14 @@ class Productdetails extends React.Component {
   //카트에 아이템 추가시 서버에 post 보내기
   addCartItem = () => {
     const { shownMessage } = this.state;
-    fetch("http://10.58.5.19:8000/cart", {
+    fetch("http://10.58.1.133:8000/cart", {
       method: "POST",
       headers: {
         Authorization: localStorage.getItem("aesopToken"),
       },
       body: JSON.stringify({
-        product_id: this.state.item[0].id,
-        pricebysize_id: this.state.item[0].size[0].id,
+        product_id: this.state.item.id,
+        pricebysize_id: this.state.item.size[0].id,
         quantity: 1,
         isPlus: "True",
       }),
@@ -67,12 +68,17 @@ class Productdetails extends React.Component {
       res.json();
     });
     // .then((res) => console.log(res));
-    this.setState({ shownMessage: !shownMessage });
+    this.setState({
+      shownMessage: !shownMessage,
+      sizeId: this.state.item.size[0].id,
+    });
   };
 
   render() {
-    const { item, addIngredient } = this.state;
+    const { item, addIngredient, shownMessage } = this.state;
     const { addIngredientHandler } = this;
+    // console.log(this.state.item);
+    // console.log(this.state.item.size[0].id && this.state.item.size[0].id);
 
     return (
       <>
@@ -88,7 +94,8 @@ class Productdetails extends React.Component {
             {addIngredient && (
               <OverlayIngredient ingredient={item.ingredient} />
             )}
-            <Nav />
+            {shownMessage && <CartMessage />}
+            <Nav sizeId={this.state.sizeId} />
             <article className="details">
               <div className="logoAndImg">
                 <div className="logoContainer">
@@ -157,7 +164,9 @@ class Productdetails extends React.Component {
                   </ul>
                   <div className="cartAdd">
                     <button className="cartBtn">
-                      <span>카트에 추가 — {item.size[0].price}</span>
+                      <span onClick={this.addCartItem}>
+                        카트에 추가 — {item.size[0].price}
+                      </span>
                     </button>
                   </div>
                 </div>

@@ -54,10 +54,11 @@ class Nav extends React.Component {
 
   render() {
     const { shownCart, shownLogin } = this.state;
+    const sizeId = this.props.sizeId;
 
     return (
       <>
-        {shownCart && <Cart />}
+        {shownCart && <Cart sizeId={sizeId} />}
         {shownLogin && (
           <Login showID={this.showID} handleLogin={this.handleLogin} />
         )}

@@ -1,5 +1,6 @@
 import React from "react";
 import { aesopLogoPath } from "../../config";
+import { cartAPI } from "../../config";
 import "./CartList.scss";
 
 class CartList extends React.Component {
@@ -9,6 +10,7 @@ class CartList extends React.Component {
       showSelectBox: false,
       selectedQuantity: 0,
       totalPrice: 0,
+      totalSum: 0,
     };
   }
 
@@ -18,43 +20,43 @@ class CartList extends React.Component {
 
   closeSelectBox = (count) => {
     // 수량변경시 가격변화
-    // const itemPrice = this.props.productPrice;
-    // const intPrice = itemPrice.replace("₩", "").replace(",", "");
-    // const totalPrice = intPrice * count;
+    const itemPrice = this.props.productPrice;
+    const intPrice = itemPrice.replace("₩", "").replace(",", "");
+    const totalPrice = intPrice * count;
 
     //서버에 수량변경 전달
-    fetch("http://10.58.5.19:8000/cart", {
+    fetch(cartAPI, {
       method: "POST",
       headers: { Authorization: localStorage.getItem("aesopToken") },
       body: JSON.stringify({
         cart_id: this.props.cartId + 1,
         quantity: count,
         isPlus: "False",
-        sizeby_id: this.props.sizeId,
       }),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
-    //현재 백엔드와 연결하는 중이라 주석제거는 나중에 성공하고 하겠습니다.
-    // .then(() => {
-    //   if (res.message === "success") {
-    //     fetch("http://10.58.5.19:8000/cart", {
-    //       headers: { Authorization: localStorage.getItem("aesopToken") },
-    //     })
-    //       .then((res) => res.json())
-    //       .then((res) => console.log(res));
-    //   }
-    // });
+      // .then((res) => console.log(res))
+      .then((res) => {
+        if (res.message === "success") {
+          fetch(cartAPI, {
+            method: "GET",
+            headers: { Authorization: localStorage.getItem("aesopToken") },
+          })
+            .then((res) => res.json())
+            .then((res) => this.setState({ totalSum: res.total }));
+        }
+      });
 
     this.setState({
       showSelectBox: false,
       selectedQuantity: count,
-      // totalPrice: totalPrice,
+      totalPrice: totalPrice,
     });
   };
 
   render() {
-    const { showSelectBox, selectedQuantity, totalPrice } = this.state;
+    const { showSelectBox, selectedQuantity } = this.state;
+    this.props.functionB(this.state.totalSum);
 
     return (
       <>
@@ -67,9 +69,10 @@ class CartList extends React.Component {
                 className={showSelectBox ? "selectClicked" : "selectQuantity "}
                 id={this.props.cartId}
               >
-                <li onClick={() => this.closeSelectBox(0)}>
-                  1
+                <li onClick={() => this.closeSelectBox(1)}>
+                  0
                   <svg
+                    className="cartArrow"
                     role="img"
                     viewBox="0 0 50 50"
                     onClick={this.openSelectBox}
@@ -93,6 +96,7 @@ class CartList extends React.Component {
                 <li className="setValue">
                   {selectedQuantity}
                   <svg
+                    className="cartArrow"
                     role="img"
                     viewBox="0 0 50 50"
                     onClick={this.openSelectBox}
@@ -123,7 +127,7 @@ class CartList extends React.Component {
             )}
           </div>
 
-          <div class="productPrice">{totalPrice}</div>
+          <div class="productPrice"> ₩ {this.state.totalPrice}</div>
         </div>
       </>
     );

@@ -11,11 +11,11 @@
   z-index: 1;
   animation: 1000ms 1ms slide-right--100 cubic-bezier(0.32, 0.24, 0.15, 1)
     forwards;
-  transform: translate(-40%, 0);
+  transform: translate(-100%, 0);
 
   @keyframes slide-right--100 {
     0% {
-      transform: translate(-40%, 0);
+      transform: translate(-100%, 0);
     }
 
     100% {

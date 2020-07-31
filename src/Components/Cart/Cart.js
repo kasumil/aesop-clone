@@ -1,7 +1,8 @@
 import React from "react";
 import CartList from "./CartList";
-import CartSum from "./CartSum";
+// import CartSum from "./CartSum";
 import { aesopLogoPath } from "../../config";
+import { cartAPI } from "../../config";
 import "./Cart.scss";
 
 class Cart extends React.Component {
@@ -12,12 +13,13 @@ class Cart extends React.Component {
       showSelectBox: false,
       selectedQuantity: 0,
       cartData: [],
+      totalSum: 0,
     };
   }
 
   //서버에서 카트 정보 받아오기 GET
   componentDidMount() {
-    fetch("http://10.58.5.19:8000/cart", {
+    fetch(cartAPI, {
       method: "GET",
       headers: {
         Authorization: localStorage.getItem("aesopToken"),
@@ -34,6 +36,9 @@ class Cart extends React.Component {
   render() {
     const productId = this.props.productId;
     const { cartShown } = this.state;
+    const functionB = (x) => {
+      return x;
+    };
 
     return (
       <>
@@ -60,9 +65,7 @@ class Cart extends React.Component {
                 const productSize = el.size;
                 const productPrice = el.price;
                 const cartId = idx;
-                const sizeId = el.id;
 
-                console.log(cartId, productName, productSize, sizeId);
                 return (
                   <>
                     <CartList
@@ -70,13 +73,20 @@ class Cart extends React.Component {
                       productSize={productSize}
                       productPrice={productPrice}
                       cartId={cartId}
-                      sizeId={sizeId}
+                      functionB={functionB}
                     />
                   </>
                 );
               })}
             </div>
-            <CartSum />
+            <div className="cartSummary">
+              <span>전 제품 무료 배송 혜택을 즐겨보세요.</span>
+              <div className="totalPrice">
+                <span>소계(세금 포함)</span>
+                <span className="sum">₩ {functionB()} </span>
+              </div>
+              <button className="payBtn">결제하기</button>
+            </div>
           </section>
         )}
       </>
