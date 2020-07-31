@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import CartMessage from "../../Components/Cart/CartMessage";
 import Nav from "../../Components/Nav/Nav";
-import CartMessage from "../../Components/Cart/CartMessage";
-import Nav from "../../Components/Nav";
 import OverlayIngredient from "./Components/OverlayIngredient";
 import Aesoplogo from "../../Components/Aesoplogo";
 import Footer from "../../Components/Footer/Footer";
