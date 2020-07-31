@@ -1,6 +1,5 @@
 @import "./src/Common.scss";
 
-//<-- onClick IngredienPage -->
 .darkTop {
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 2;
@@ -14,67 +13,6 @@
   font-family: "Suisse Regular";
   color: $fontDark;
 
-  .out {
-    transition-timing-function: ease;
-    visibility: hidden;
-  }
-  .come {
-    transform: translateX(0);
-    transition-timing-function: ease;
-    visibility: visible;
-    transition: width 1s;
-    background-color: red;
-    transition-property: background-color;
-  }
-
-  .ClickIngredientContainer {
-    position: fixed;
-    background-color: #f1f0e8;
-    z-index: 1;
-    left: 0;
-    right: 0;
-    width: 50vw;
-    height: 100vh;
-    transform: translate(50%);
-
-    .productIngredientWrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 50%;
-      padding: 0 200px;
-
-      .content {
-        margin: 50px 0;
-
-        li {
-          color: $fontDark;
-          margin: 30px 0;
-
-          &:last-child {
-            font-size: 18px;
-          }
-        }
-      }
-    }
-
-    .closeBtn {
-      position: absolute;
-      background-color: inherit;
-      border-style: none;
-      cursor: pointer;
-      width: 30px;
-      right: 30px;
-      top: 30px;
-
-      .closeBtnIcon {
-        width: 12px;
-        height: 12px;
-      }
-    }
-  }
-  //<-- Top Details -->
   .details {
     display: flex;
     justify-content: flex-end;
@@ -112,6 +50,26 @@
 
         li {
           font-size: 14px;
+          text-transform: uppercase;
+          cursor: pointer;
+
+          a {
+            text-decoration: none;
+            color: $fontDark;
+          }
+
+          &:after {
+            display: block;
+            content: "";
+            border-bottom: 1px solid black;
+            transform: scaleX(0);
+            transition: transform 300ms ease-in-out;
+          }
+
+          &:hover:after {
+            transform: scaleX(1);
+            transform-origin: left;
+          }
         }
 
         .circlePoint {
@@ -167,7 +125,7 @@
             border-radius: 50%;
             background-color: inherit;
             border: 1px solid black;
-            transition-duration: 1s;
+            transition-duration: 350ms;
 
             .moreBtnIcon {
               font-weight: normal;
@@ -219,14 +177,13 @@
     }
   }
 
-  //<-- Center Explanation -->
   .useExplanation {
     display: flex;
-    height: 100vh;
+    height: 940px;
 
     .imgBox {
       position: relative;
-      height: 980px;
+      height: 940px;
 
       .explanImg {
         width: 50vw;
@@ -311,8 +268,8 @@
       .explanList {
         .howToUse {
           h2 {
-            font-family: "Zapf";
-            font-weight: normal;
+            font-family: "Zapf", serif;
+            font-weight: lighter;
             color: $fontDark;
             margin: 25px 0;
             font-size: 30px;
@@ -341,7 +298,6 @@
     }
   }
 
-  //<-- Bottom Recommend -->
   .recommend {
     display: flex;
 
@@ -370,6 +326,7 @@
 
         p {
           color: $fontDark;
+          font-family: "Suisse Regular", sans-serif;
           line-height: 1.5;
         }
       }
@@ -391,7 +348,7 @@
         width: 100%;
 
         .slick-next {
-          left: 1220px;
+          left: 1350px;
         }
 
         .slick-prev:before {
