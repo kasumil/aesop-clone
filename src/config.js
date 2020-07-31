@@ -41,4 +41,4 @@ export const loginAPI = "http://10.58.1.133:8000/user/sign-in";
 
 export const signUpAPI = "http://10.58.1.133:8000/user/sign-up";
 
-export const cartAPI = "http://10.58.1.133:8000/cart";
+export const cartAPI = "http://15.164.220.49:8080/cart";

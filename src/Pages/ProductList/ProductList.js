@@ -1,6 +1,6 @@
 import React from "react";
-import Productfilternav from "../../Components/Productfilternav";
 import Nav from "../../Components/Nav/Nav";
+import Productfilternav from "../../Components/Productfilternav";
 import Productslider from "./Components/Productslider";
 import * as productList_API from "../../config";
 import "./ProductList.scss";
@@ -17,12 +17,13 @@ class ProductList extends React.Component {
       .then((res) => res.json())
       .then((res) => this.setState({ products: res.data }));
   }
+
   render() {
     const { products } = this.state;
     return (
       <div className="ProductList">
         <Nav />
-        <Productfilternav />
+        <Productfilternav  />
         <Productslider products={products} />
       </div>
     );

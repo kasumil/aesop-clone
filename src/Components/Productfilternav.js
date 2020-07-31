@@ -1,11 +1,16 @@
 import React from "react";
 import { aesopLogoPath } from "../config";
 import * as productList_API from "../config";
+import { withRouter } from "react-router-dom";
 import "./Productfilternav.scss";
 
 class Productfilternav extends React.Component {
   state = {
     category: [],
+  };
+
+  clickHandler = (id) => {
+    this.props.history.push(`/maplist/${id}`);
   };
 
   componentDidMount() {
@@ -14,10 +19,13 @@ class Productfilternav extends React.Component {
       .then((res) => this.setState({ category: res.data.category }));
   }
 
+  goToSkin = () => {
+    this.props.history.push("/skin");
+  };
+
   render() {
     const { category } = this.state;
     const path = aesopLogoPath;
-
     return (
       <section className="Productfilternav">
         <div className="logoContainer">
@@ -55,12 +63,14 @@ class Productfilternav extends React.Component {
             <div className="productFilterBox">
               <ul className="productFilterNav">
                 <li>
-                  <span className="start">모든 스킨</span>
+                  <span className="start" onClick={this.goToSkin}>
+                    모든 스킨
+                  </span>
                 </li>
                 {category &&
                   category.map((el) => {
                     return (
-                      <li key={el.id}>
+                      <li key={el.id} onClick={() => this.clickHandler(el.id)}>
                         <span>{el.name}</span>
                       </li>
                     );
@@ -86,4 +96,4 @@ class Productfilternav extends React.Component {
   }
 }
 
-export default Productfilternav;
+export default withRouter(Productfilternav);
