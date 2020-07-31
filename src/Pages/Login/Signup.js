@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import * as signUpAPI from "../../config";
 import "./Signup.scss";
 
 class Signup extends Component {
@@ -53,7 +54,7 @@ class Signup extends Component {
   };
 
   handleSingUP = (e) => {
-    fetch("http://10.58.1.133:8000/user/sign-up", {
+    fetch(signUpAPI, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,

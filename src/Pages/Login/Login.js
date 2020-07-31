@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import * as loginAPI from "../../config";
 import "./Login.scss";
 
 class Login extends Component {
@@ -25,7 +26,7 @@ class Login extends Component {
 
   // 로그인용 버튼
   hadleBtn = (e) => {
-    fetch("http://10.58.1.133:8000/user/sign-in", {
+    fetch(loginAPI, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -49,8 +50,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log(this.props);
-
     return (
       <div className="Login">
         <div className="modalBody">

@@ -36,3 +36,9 @@ export const PDMockData = "http://localhost:3000/data/PDD.json";
 export const productList_API = "http://10.58.6.25:8080/board/1";
 
 export const productDetail_API = "http://10.58.6.25:8080/board/read/";
+
+export const loginAPI = "http://10.58.1.133:8000/user/sign-in";
+
+export const signUpAPI = "http://10.58.1.133:8000/user/sign-up";
+
+export const cartAPI = "http://10.58.1.133:8000/cart";

@@ -37,7 +37,7 @@ class Productdetails extends React.Component {
   };
 
   componentDidMount() {
-    fetch(`http://218.152.9.67:8080/board/read/${this.props.match.params.id}`)
+    fetch(`http://15.164.220.49:8080/board/read/${this.props.match.params.id}`)
       // fetch(productDetail_API + this.props.match.params.id)
       .then((res) => res.json())
       .then((res) => this.setState({ item: res.data[0] }));

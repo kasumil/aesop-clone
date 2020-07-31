@@ -11,12 +11,15 @@ class CartSum extends React.Component {
   }
 
   render() {
+    const x = this.props.totalSum;
+    console.log(x);
+
     return (
       <div className="cartSummary">
         <span>전 제품 무료 배송 혜택을 즐겨보세요.</span>
         <div className="totalPrice">
           <span>소계(세금 포함)</span>
-          <span className="sum">₩ 113,000</span>
+          <span className="sum">₩ </span>
         </div>
         <button className="payBtn">결제하기</button>
       </div>
