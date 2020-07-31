@@ -23,14 +23,14 @@ class CartList extends React.Component {
     // const totalPrice = intPrice * count;
 
     //서버에 수량변경 전달
-    fetch("http://10.58.5.19:8000/cart", {
+    fetch("http://10.58.1.133:8000/cart", {
       method: "POST",
       headers: { Authorization: localStorage.getItem("aesopToken") },
       body: JSON.stringify({
         cart_id: this.props.cartId + 1,
         quantity: count,
         isPlus: "False",
-        sizeby_id: this.props.sizeId,
+        pricebysize_id: this.props.sizeId,
       }),
     })
       .then((res) => res.json())

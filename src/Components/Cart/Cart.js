@@ -17,7 +17,7 @@ class Cart extends React.Component {
 
   //서버에서 카트 정보 받아오기 GET
   componentDidMount() {
-    fetch("http://10.58.5.19:8000/cart", {
+    fetch("http://10.58.1.133:8000/cart", {
       method: "GET",
       headers: {
         Authorization: localStorage.getItem("aesopToken"),
@@ -34,6 +34,8 @@ class Cart extends React.Component {
   render() {
     const productId = this.props.productId;
     const { cartShown } = this.state;
+    const sizeId = this.props.sizeId;
+    console.log(sizeId && sizeId);
 
     return (
       <>
@@ -60,9 +62,8 @@ class Cart extends React.Component {
                 const productSize = el.size;
                 const productPrice = el.price;
                 const cartId = idx;
-                const sizeId = el.id;
 
-                console.log(cartId, productName, productSize, sizeId);
+                console.log(cartId, productName, productSize);
                 return (
                   <>
                     <CartList
