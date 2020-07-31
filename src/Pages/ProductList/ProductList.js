@@ -1,6 +1,6 @@
 import React from "react";
 import Productfilternav from "../../Components/Productfilternav";
-import Nav from "../../Components/Nav";
+import Nav from "../../Components/Nav/Nav";
 import Productslider from "./Components/Productslider";
 import * as productList_API from "../../config";
 import "./ProductList.scss";

@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Nav from "../../Components/Nav/Nav";
+import CartMessage from "../../Components/Cart/CartMessage";
 import Nav from "../../Components/Nav";
 import OverlayIngredient from "./Components/OverlayIngredient";
 import Aesoplogo from "../../Components/Aesoplogo";
-import Footer from "../../Components/Footer";
+import Footer from "../../Components/Footer/Footer";
 import Recommendproduct from "./Components/Recommendproduct";
 import Slider from "react-slick";
 import * as productDetail_API from "../../config";
@@ -22,7 +24,10 @@ const settings = {
 
 class Productdetails extends React.Component {
   state = {
-    item: {},
+    item: [],
+    isToggleOn: false,
+    shownMessage: false,
+    sizeId: 0,
     addIngredient: false,
   };
 
@@ -33,10 +38,38 @@ class Productdetails extends React.Component {
   };
 
   componentDidMount() {
-    fetch(productDetail_API + this.props.match.params.id)
+    fetch("http://localhost:3000/data/pdexample.json")
       .then((res) => res.json())
-      .then((res) => this.setState({ item: res.data[0] }));
+      .then((res) => this.setState({ item: res.data }));
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { shownMessage } = this.state;
+    if (prevState.shownMessage !== shownMessage) {
+      this.setState({ shownMessage: true });
+    }
+  }
+
+  //카트에 아이템 추가시 서버에 post 보내기
+  addCartItem = () => {
+    const { shownMessage } = this.state;
+    fetch("http://10.58.5.19:8000/cart", {
+      method: "POST",
+      headers: {
+        Authorization: localStorage.getItem("aesopToken"),
+      },
+      body: JSON.stringify({
+        product_id: this.state.item[0].id,
+        pricebysize_id: this.state.item[0].size[0].id,
+        quantity: 1,
+        isPlus: "True",
+      }),
+    }).then((res) => {
+      res.json();
+    });
+    // .then((res) => console.log(res));
+    this.setState({ shownMessage: !shownMessage });
+  };
 
   render() {
     const { item, addIngredient } = this.state;
