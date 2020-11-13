@@ -14,7 +14,7 @@ class Productfilternav extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://15.164.220.49:8080/board/1")
+    fetch({productList_API})
       .then((res) => res.json())
       .then((res) => this.setState({ category: res.data.category }));
   }

@@ -37,7 +37,7 @@ class Productdetails extends React.Component {
   };
 
   componentDidMount() {
-    fetch(`http://15.164.220.49:8080/board/read/${this.props.match.params.id}`)
+    fetch(`${productDetail_API}/board/read/${this.props.match.params.id}`)
       // fetch(productDetail_API + this.props.match.params.id)
       .then((res) => res.json())
       .then((res) => this.setState({ item: res.data[0] }));
@@ -53,7 +53,7 @@ class Productdetails extends React.Component {
   //카트에 아이템 추가시 서버에 post 보내기
   addCartItem = () => {
     const { shownMessage } = this.state;
-    fetch("http://10.58.1.133:8000/cart", {
+    fetch({cartAPI}, {
       method: "POST",
       headers: {
         Authorization: localStorage.getItem("aesopToken"),

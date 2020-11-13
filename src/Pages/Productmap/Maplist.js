@@ -15,7 +15,7 @@ class MapList extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://15.164.220.49:8080/board/1/${this.props.match.params.id}`)
+    fetch(`${productList_API}/board/1/${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({ goods: res.data.items });
@@ -24,7 +24,7 @@ class MapList extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       console.log(this.props);
-      fetch(`http://15.164.220.49:8080/board/1/${this.props.match.params.id}`)
+      fetch(`${productList_API}/board/1/${this.props.match.params.id}`)
         .then((res) => res.json())
         .then((res) => {
           this.setState({ goods: res.data.items });
