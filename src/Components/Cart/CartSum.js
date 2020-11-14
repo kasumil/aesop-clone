@@ -1,19 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CartSum.scss";
 
-class CartSum extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      showSelectBox: false,
-      selectedQuantity: 0,
-    };
-  }
+export default function CartSum() {
+  const [ showSelectBox, setShowSelectBox ] = useState(false)
+  const [ selectedQuantity, setSelectedQuantity ] = useState(0)
 
   render() {
-    const x = this.props.totalSum;
-    console.log(x);
-
+    const x = totalSum;
     return (
       <div className="cartSummary">
         <span>전 제품 무료 배송 혜택을 즐겨보세요.</span>
@@ -26,4 +19,3 @@ class CartSum extends React.Component {
     );
   }
 }
-export default CartSum;

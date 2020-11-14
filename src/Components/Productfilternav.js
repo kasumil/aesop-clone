@@ -1,30 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { aesopLogoPath } from "../config";
 import * as productList_API from "../config";
-import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./Productfilternav.scss";
 
-class Productfilternav extends React.Component {
-  state = {
-    category: [],
-  };
+export default function Productfilternav() {
+  const [ category, setCategory ] = useState([])
+  const { history } = useHistory 
 
-  clickHandler = (id) => {
-    this.props.history.push(`/maplist/${id}`);
-  };
-
-  componentDidMount() {
+  useEffect(() => {
     fetch({productList_API})
       .then((res) => res.json())
-      .then((res) => this.setState({ category: res.data.category }));
-  }
+      .then((res) => setCategory({ [category]: res.data.category }));
+  }, [])
 
-  goToSkin = () => {
-    this.props.history.push("/skin");
+  const clickHandler = (id) => {
+    history.push(`/maplist/${id}`);
+  };
+
+  const goToSkin = () => {
+    history.push("/skin");
   };
 
   render() {
-    const { category } = this.state;
     const path = aesopLogoPath;
     return (
       <section className="Productfilternav">
@@ -63,14 +61,14 @@ class Productfilternav extends React.Component {
             <div className="productFilterBox">
               <ul className="productFilterNav">
                 <li>
-                  <span className="start" onClick={this.goToSkin}>
+                  <span className="start" onClick={goToSkin}>
                     모든 스킨
                   </span>
                 </li>
                 {category &&
                   category.map((el) => {
                     return (
-                      <li key={el.id} onClick={() => this.clickHandler(el.id)}>
+                      <li key={el.id} onClick={() => clickHandler(el.id)}>
                         <span>{el.name}</span>
                       </li>
                     );
@@ -96,4 +94,3 @@ class Productfilternav extends React.Component {
   }
 }
 
-export default withRouter(Productfilternav);

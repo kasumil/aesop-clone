@@ -1,17 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer.scss";
 
-class Footer extends React.Component {
-  state = {
-    emailFocused: false,
-  };
+export default function Footer(){
+  const [emailFocused, setEmailFocused ] = useState
 
-  focusEmailInput = () => {
-    this.setState({ emailFocused: !this.state.emailFocused });
+  const focusEmailInput = () => {
+    setEmailFocused({ [emailFocused]: emailFocused });
   };
 
   render() {
-    const { emailFocused } = this.state;
     return (
       <>
         <footer className="Footer">
@@ -26,8 +23,8 @@ class Footer extends React.Component {
                 </span>
                 <div
                   class="inputEmail"
-                  onFocus={this.focusEmailInput}
-                  onBlur={this.focusEmailInput}
+                  onFocus={focusEmailInput}
+                  onBlur={focusEmailInput}
                 >
                   <input type="text"></input>
                 </div>
@@ -81,4 +78,3 @@ class Footer extends React.Component {
     );
   }
 }
-export default Footer;
