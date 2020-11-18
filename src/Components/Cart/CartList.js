@@ -1,26 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { aesopLogoPath } from "../../config";
 import { cartAPI } from "../../config";
 import "./CartList.scss";
 
-class CartList extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      showSelectBox: false,
-      selectedQuantity: 0,
-      totalPrice: 0,
-      totalSum: 0,
-    };
-  }
+export default function CartList() {
+  const [ showSelectBox, setShowSelectBox ] = useState(false)
+  const [ selectedQuantity, setSelectedQuantity ] = useState(0)
+  const [ totalPrice, setTotalPrice ] = useState(0)
+  const [ totalSum, setTotalSum ] = useState(0)
 
-  openSelectBox = () => {
-    this.setState({ showSelectBox: true });
+  const openSelectBox = () => {
+    setShowSelectBox({ [showSelectBox]: true });
   };
 
-  closeSelectBox = (count) => {
+  const closeSelectBox = (count) => {
     // 수량변경시 가격변화
-    const itemPrice = this.props.productPrice;
+    const itemPrice = productPrice;
     const intPrice = itemPrice.replace("₩", "").replace(",", "");
     const totalPrice = intPrice * count;
 
@@ -29,13 +24,12 @@ class CartList extends React.Component {
       method: "POST",
       headers: { Authorization: localStorage.getItem("aesopToken") },
       body: JSON.stringify({
-        cart_id: this.props.cartId + 1,
+        cart_id: cartId + 1,
         quantity: count,
         isPlus: "False",
       }),
     })
       .then((res) => res.json())
-      // .then((res) => console.log(res))
       .then((res) => {
         if (res.message === "success") {
           fetch(cartAPI, {
@@ -45,37 +39,35 @@ class CartList extends React.Component {
             .then((res) => res.json())
             .then((res) => this.setState({ totalSum: res.total }));
         }
-      });
-
-    this.setState({
-      showSelectBox: false,
-      selectedQuantity: count,
-      totalPrice: totalPrice,
+      }
+      .catch((e) => console.log(e.message))
+      );
+      setShowSelectBox({[showSelectBox]: false})
+      setSelectedQuantity({[selectedQuantity]: count})
+      setTotalPrice({[totalPrice]: totalPrice})
     });
   };
 
   render() {
-    const { showSelectBox, selectedQuantity } = this.state;
-    this.props.functionB(this.state.totalSum);
-
+    functionB(totalSum);
     return (
       <>
-        <div className="cartAdded" id={this.props.cartId}>
-          <div className="productName">{this.props.productName}</div>
-          <div className="productSize">{this.props.productSize}</div>
+        <div className="cartAdded" id={cartId}>
+          <div className="productName">{productName}</div>
+          <div className="productSize">{productSize}</div>
           <div className="productCount">
             {selectedQuantity === 0 && (
               <ul
                 className={showSelectBox ? "selectClicked" : "selectQuantity "}
-                id={this.props.cartId}
+                id={cartId}
               >
-                <li onClick={() => this.closeSelectBox(1)}>
+                <li onClick={() => closeSelectBox(1)}>
                   0
                   <svg
                     className="cartArrow"
                     role="img"
                     viewBox="0 0 50 50"
-                    onClick={this.openSelectBox}
+                    onClick={openSelectBox}
                   >
                     <g>
                       <polygon points={aesopLogoPath.slideArrow}></polygon>
@@ -91,7 +83,7 @@ class CartList extends React.Component {
             {selectedQuantity !== 0 && (
               <ul
                 className={showSelectBox ? "selectClicked" : "selectQuantity "}
-                id={this.props.cartId}
+                id={cartId}
               >
                 <li className="setValue">
                   {selectedQuantity}
@@ -99,7 +91,7 @@ class CartList extends React.Component {
                     className="cartArrow"
                     role="img"
                     viewBox="0 0 50 50"
-                    onClick={this.openSelectBox}
+                    onClick={sopenSelectBox}
                   >
                     <g>
                       <polygon points={aesopLogoPath.slideArrow}></polygon>
@@ -126,12 +118,10 @@ class CartList extends React.Component {
               </ul>
             )}
           </div>
-
-          <div class="productPrice"> ₩ {this.state.totalPrice}</div>
+          <div class="productPrice"> ₩ {totalPrice}</div>
         </div>
       </>
     );
   }
 }
 
-export default CartList;

@@ -1,41 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CartList from "./CartList";
 // import CartSum from "./CartSum";
 import { aesopLogoPath } from "../../config";
 import { cartAPI } from "../../config";
 import "./Cart.scss";
 
-class Cart extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      cartShown: true,
-      showSelectBox: false,
-      selectedQuantity: 0,
-      cartData: [],
-      totalSum: 0,
-    };
-  }
+export default function Cart() {
+  const [cartShown setCartShown] = useState(true)
+  const [showSelectBox setShowSelectBox] = useState(false)
+  const [selectedQuantity setSelectedQuantity] = useState(0)
+  const [cartData setCartData] = useState([])
+  const [totalSum setTotalSum] = useState(0)
 
   //서버에서 카트 정보 받아오기 GET
-  componentDidMount() {
+  useEffect(() => {
     fetch(cartAPI, {
       method: "GET",
       headers: {
         Authorization: localStorage.getItem("aesopToken"),
       },
     })
-      .then((res) => res.json())
-      .then((res) => this.setState({ cartData: res.data }));
-  }
+    .then((res) => res.json())
+    .then((res) => setCartData({[cartData]: res.data })
+    )
+    .catch((e)=> console.log(e.message));
+  }, [])
+    
 
-  closeCart = () => {
-    this.setState({ cartShown: false });
-  };
+  const closeCart = () => {
+    setCartShown({ [cartShown]: false })};
 
   render() {
-    const productId = this.props.productId;
-    const { cartShown } = this.state;
+    const productId = productId;
+    const { cartShown } = cartShown
     const functionB = (x) => {
       return x;
     };
@@ -50,7 +47,7 @@ class Cart extends React.Component {
                 <div className="cartSize">사이즈</div>
                 <div className="cartQuantity">수량</div>
                 <div class="cartBtn">
-                  <button className="btnContainer" onClick={this.closeCart}>
+                  <button className="btnContainer" onClick={closeCart}>
                     <svg class="Icon" role="img" viewBox="0 0 50 50">
                       <g>
                         <polygon points={aesopLogoPath.closeBtn}></polygon>
@@ -60,7 +57,7 @@ class Cart extends React.Component {
                 </div>
               </div>
 
-              {this.state.cartData.map((el, idx) => {
+              {cartData.map((el, idx) => {
                 const productName = el.product;
                 const productSize = el.size;
                 const productPrice = el.price;
@@ -94,4 +91,3 @@ class Cart extends React.Component {
   }
 }
 
-export default Cart;
