@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CitrusFeed from "./Components/CitrusFeed/CitrusFeed";
 import Carousel from "./Components/Carousel/Carousel";
 import Appointment from "./Components/Appointment/Appointment";
@@ -7,56 +7,45 @@ import Quote from "./Components/Quote/Quote";
 import Footer from "../../Components/Footer/Footer";
 import "./Main.scss";
 
-class Main extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      firstFeed: false,
-      secondFeed: false,
-      thirdFeed: false,
-      fourthFeed: false,
-    };
-  }
+export default function Main() {
+  const [firstFeed, setFirstFeed] = useState(false)
+  const [secondFeed, setSecondFeed] = useState(false)
+  const [thirdFeed, setThirdFeed] = useState(false)
+  const [fourthFeed, setFourthFeed] = useState(false)
 
-  componentDidMount = () => {
-    window.addEventListener("scroll", this.listenScrollEvent);
-  };
+  useEffect(() => {
+    componentDidMount = () => {
+      window.addEventListener("scroll", this.listenScrollEvent)};
+    componentWillUnmount = () => {
+      window.removeEventListener("scroll", this.listenScrollEvent)};
+  })
 
-  componentWillUnmount = () => {
-    window.removeEventListener("scroll", this.listenScrollEvent);
-  };
-
-  listenScrollEvent = () => {
+  const listenScrollEvent = () => {
     if (window.scrollY > 220) {
-      this.setState({ firstFeed: true });
+      setFirstFeed({ firstFeed: true });
     }
 
     if (window.scrollY > 1000) {
-      this.setState({ secondFeed: true });
+      setSecondFeed({ secondFeed: true });
     }
 
     if (window.scrollY > 1750) {
-      this.setState({ thirdFeed: true });
+      setThirdFeed({ thirdFeed: true });
     }
 
     if (window.scrollY > 2300) {
-      this.setState({ fourthFeed: true });
+      setFourthFeed({ fourthFeed: true });
     }
   };
 
-  render() {
-    const { firstFeed, secondFeed, thirdFeed, fourthFeed } = this.state;
-    return (
-      <div className="Main">
-        <CitrusFeed />
-        <Carousel firstFeed={firstFeed} />
-        <Appointment secondFeed={secondFeed} />
-        <Store thirdFeed={thirdFeed} />
-        <Quote fourthFeed={fourthFeed} />
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <div className="Main">
+      <CitrusFeed />
+      <Carousel firstFeed={firstFeed} />
+      <Appointment secondFeed={secondFeed} />
+      <Store thirdFeed={thirdFeed} />
+      <Quote fourthFeed={fourthFeed} />
+      <Footer />
+    </div>
+  );
 }
-
-export default Main;
